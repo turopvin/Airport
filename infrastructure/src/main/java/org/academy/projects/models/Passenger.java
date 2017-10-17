@@ -33,7 +33,7 @@ public class Passenger implements Serializable {
         return first_name;
     }
 
-    public void setFirst_name(String first_name) {
+    public void setFirst_name(final String first_name) {
         this.first_name = first_name;
     }
 
@@ -41,7 +41,7 @@ public class Passenger implements Serializable {
         return last_name;
     }
 
-    public void setLast_name(String last_name) {
+    public void setLast_name(final String last_name) {
         this.last_name = last_name;
     }
 
@@ -49,7 +49,7 @@ public class Passenger implements Serializable {
         return passport_number;
     }
 
-    public void setPassport_number(String passport_number) {
+    public void setPassport_number(final String passport_number) {
         this.passport_number = passport_number;
     }
 
@@ -57,7 +57,7 @@ public class Passenger implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final sdString email) {
         this.email = email;
     }
 
