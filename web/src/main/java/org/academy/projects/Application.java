@@ -10,12 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @PropertySource("classpath:/application.properties")
 @ComponentScan(basePackages = "org.academy.projects")
-public class Application extends SpringBootServletInitializer{
+public class Application{
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
 
     public static void main(String...args){
         SpringApplication.run(Application.class, args);
