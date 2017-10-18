@@ -22,7 +22,7 @@ public class Ticket implements Serializable {
         return passenger;
     }
 
-    public void setPassenger(Passenger passenger) {
+    public void setPassenger(final Passenger passenger) {
         this.passenger = passenger;
     }
 
@@ -30,7 +30,7 @@ public class Ticket implements Serializable {
         return flight;
     }
 
-    public void setFlight(Flight flight) {
+    public void setFlight(final Flight flight) {
         this.flight = flight;
     }
 }

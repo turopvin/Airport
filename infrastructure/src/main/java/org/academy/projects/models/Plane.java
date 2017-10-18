@@ -21,7 +21,7 @@ public class Plane implements Serializable{
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(final String model) {
         this.model = model;
     }
 
@@ -29,7 +29,7 @@ public class Plane implements Serializable{
         return numberOfPlaces;
     }
 
-    public void setNumberOfPlaces(int numberOfPlaces) {
+    public void setNumberOfPlaces(final Integer numberOfPlaces) {
         this.numberOfPlaces = numberOfPlaces;
     }
 

@@ -57,7 +57,7 @@ public class Passenger implements Serializable {
         return email;
     }
 
-    public void setEmail(final sdString email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 

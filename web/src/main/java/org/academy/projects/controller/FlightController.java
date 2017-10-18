@@ -7,15 +7,16 @@ import org.academy.projects.services.FlightService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-@RestController
-@RequestMapping
+@Controller
 public class FlightController {
 
     private final DozerBeanMapper mapper;
@@ -28,15 +29,12 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity register(@RequestBody @Valid final FlightRequest flightRequest) {
-
-        final Flight flight = mapper.map(flightRequest,Flight.class);
-
-        final Flight registeredFlight = flightService.saveFlight(flight);
-
-        final FlightResponse response = mapper.map(registeredFlight, FlightResponse.class);
-
-        return ResponseEntity.ok().body(response);
+    @RequestMapping("/")
+    public String welcomePage() {
+        return "welcome";
     }
+
+
+
+
 }

@@ -42,7 +42,7 @@ public class Flight implements Serializable {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(final Integer price) {
         this.price = price;
     }
 
@@ -50,7 +50,7 @@ public class Flight implements Serializable {
         return cityFrom;
     }
 
-    public void setCityFrom(String cityFrom) {
+    public void setCityFrom(final String cityFrom) {
         this.cityFrom = cityFrom;
     }
 
@@ -58,7 +58,7 @@ public class Flight implements Serializable {
         return cityTo;
     }
 
-    public void setCityTo(String cityTo) {
+    public void setCityTo(final String cityTo) {
         this.cityTo = cityTo;
     }
 
@@ -66,7 +66,7 @@ public class Flight implements Serializable {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(final Date departureDate) {
         this.departureDate = departureDate;
     }
 
@@ -74,7 +74,7 @@ public class Flight implements Serializable {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(final Date arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
@@ -82,7 +82,7 @@ public class Flight implements Serializable {
         return plane;
     }
 
-    public void setPlane(Plane plane) {
+    public void setPlane(final Plane plane) {
         this.plane = plane;
     }
 
