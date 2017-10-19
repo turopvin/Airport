@@ -2,36 +2,38 @@ package org.academy.projects.controller;
 
 import org.academy.projects.controller.dto.FlightRequest;
 import org.academy.projects.controller.dto.FlightResponse;
-import org.academy.projects.models.Flight;
-import org.academy.projects.services.FlightService;
+import org.academy.projects.model.Flight;
+import org.academy.projects.services.FlightManager;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
 @Controller
 public class FlightController {
 
     private final DozerBeanMapper mapper;
 
-    private final FlightService flightService;
+    private final FlightManager flightManager;
 
     @Autowired
-    public FlightController(final DozerBeanMapper mapper,final FlightService flightService){
+    public FlightController(final DozerBeanMapper mapper,final FlightManager flightManager){
         this.mapper = mapper;
-        this.flightService = flightService;
+        this.flightManager = flightManager;
     }
 
     @RequestMapping("/")
-    public String welcomePage() {
+    public String welcomePage(Model model) {
+        model.addAttribute(new Flight());
         return "welcome";
+    }
+
+    @RequestMapping(value = "/returnPage")
+    public String returnPage(@ModelAttribute Flight flight, Model model){
+        flightManager.create(flight);
+        model.addAttribute("return", flight);
+        return "availableFlights";
     }
 
 

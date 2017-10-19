@@ -1,6 +1,6 @@
-package org.academy.projects.interfaces.flight;
+package org.academy.projects.services;
 
-import org.academy.projects.models.Flight;
+import org.academy.projects.model.Flight;
 
 import java.util.List;
 

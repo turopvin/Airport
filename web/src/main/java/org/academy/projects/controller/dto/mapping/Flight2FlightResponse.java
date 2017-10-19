@@ -1,7 +1,7 @@
 package org.academy.projects.controller.dto.mapping;
 
 import org.academy.projects.controller.dto.FlightResponse;
-import org.academy.projects.models.Flight;
+import org.academy.projects.model.Flight;
 import org.dozer.loader.api.BeanMappingBuilder;
 
 import static org.dozer.loader.api.TypeMappingOptions.oneWay;

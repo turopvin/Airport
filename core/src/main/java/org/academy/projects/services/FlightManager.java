@@ -1,6 +1,7 @@
-package org.academy.projects.interfaces.flight;
+package org.academy.projects.services;
 
-import org.academy.projects.models.Flight;
+import org.academy.projects.interfaces.flight.FlightRepository;
+import org.academy.projects.model.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

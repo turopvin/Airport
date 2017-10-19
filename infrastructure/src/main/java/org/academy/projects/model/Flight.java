@@ -1,4 +1,4 @@
-package org.academy.projects.models;
+package org.academy.projects.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
