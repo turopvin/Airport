@@ -1,4 +1,4 @@
-package org.academy.projects.services;
+package org.academy.projects.service.flightManager;
 
 import org.academy.projects.model.Flight;
 
@@ -10,6 +10,7 @@ public interface FlightManagement {
     void delete(Flight flight);
     List<Flight> findByCityTo(String nameOfCity);
     List<Flight> findByCityFrom(String nameOfCity);
+    Flight find(Integer id);
     Flight update(Flight flight);
 
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <!--/*@thymesVar id="trip" type="org.academy.projects.model.Flight"*/-->
+    <p th:object="${trip}"/>
+    From the city: <p th:each="trip: ${}"/>
+    To the city: <p th:text="${trip.getCityTo()}"/>
+    Date: <p th:text="${trip.getDepartureDate()}"/>
+
+</body>
+</html>

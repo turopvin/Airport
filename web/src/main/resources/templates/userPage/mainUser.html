@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grodno Airport</title>
+</head>
+<body>
+    <h3>We value your time and comfort</h3>
+    <h4>Find your flight</h4>
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <form action="#" th:action="@{/findingTrip}" th:object="${flight}">
+        <p>From: <input type="text" value="Grodno" th:field="*{cityFrom}"/></p>
+        <p>To: <input type="text" th:field="*{cityTo}"/></p>
+        <p><input type="submit" value="Search"/></p>
+    </form>
+</body>
+</html>

@@ -16,6 +16,9 @@ public class Plane implements Serializable{
     @Column(name="number_of_places")
     private int numberOfPlaces;
 
+    public Integer getID(){
+        return id;
+    }
 
     public String getModel() {
         return model;

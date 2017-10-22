@@ -1,4 +1,6 @@
 package org.academy.projects.model;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -19,9 +21,11 @@ public class Flight implements Serializable {
     private String cityTo;
 
     @Column(name = "departure_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date departureDate;
 
     @Column(name = "arrival_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivalDate;
 
     @Column(name = "price")
@@ -31,7 +35,7 @@ public class Flight implements Serializable {
     @JoinColumn(name = "plane_id")
     private Plane plane;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "flight")
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "flight")
     private Set<Ticket> ticketSet;
 
 

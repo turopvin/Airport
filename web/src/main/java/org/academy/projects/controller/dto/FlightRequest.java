@@ -1,29 +1,25 @@
 package org.academy.projects.controller.dto;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+
 public class FlightRequest {
 
-    @NotBlank(message = "can't be empty")
     private String cityFrom;
 
-    @NotBlank(message = "can't be empty")
     private String cityTo;
 
-    @NotBlank(message = "can't be empty")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date departureDate;
 
-    @NotBlank(message = "can't be empty")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivalDate;
 
-    @NotBlank(message = "can't be empty")
     private Integer price;
 
-    @NotBlank(message = "can't be empty")
-    private String plane;
+    private Integer plane;
 
     public String getCityFrom() {
         return cityFrom;
@@ -65,12 +61,21 @@ public class FlightRequest {
         this.price = price;
     }
 
-    public String getPlane() {
+    public Integer getPlane() {
         return plane;
     }
 
-    public void setPlane(String plane) {
+    public void setPlane(Integer plane) {
         this.plane = plane;
     }
 
+    @Override
+    public String toString() {
+        return "FlightRequest{" +
+                "cityFrom='" + cityFrom + '\'' +
+                ", cityTo='" + cityTo + '\'' +
+                ", price='" + price + '\'' +
+                ", plane='" + plane + '\'' +
+                '}';
+    }
 }

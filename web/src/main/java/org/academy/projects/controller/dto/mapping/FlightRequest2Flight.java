@@ -2,20 +2,37 @@ package org.academy.projects.controller.dto.mapping;
 
 import org.academy.projects.controller.dto.FlightRequest;
 import org.academy.projects.model.Flight;
-import org.dozer.loader.api.BeanMappingBuilder;
+import org.academy.projects.service.planeManager.PlaneManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import static org.dozer.loader.api.TypeMappingOptions.oneWay;
+@Component
+public class FlightRequest2Flight {
 
-public class FlightRequest2Flight extends BeanMappingBuilder {
+    private final PlaneManager planeManager;
 
-    @Override
-    protected void configure() {
-        mapping(FlightRequest.class, Flight.class,oneWay())
-                .fields("cityFrom","cityFrom")
-                .fields("cityTo","cityTo")
-                .fields("departureDate","departureDate")
-                .fields("arrivalDate","arrivalDate")
-                .fields("price","price");
+    @Autowired
+    public FlightRequest2Flight(PlaneManager planeManager){
+        this.planeManager = planeManager;
+    }
+
+    public Flight map(FlightRequest flightRequest){
+
+        Flight flight = new Flight();
+
+        flight.setCityFrom(flightRequest.getCityFrom());
+
+        flight.setCityTo(flightRequest.getCityTo());
+
+        flight.setDepartureDate(flightRequest.getDepartureDate());
+
+        flight.setArrivalDate(flightRequest.getArrivalDate());
+
+        flight.setPrice(flightRequest.getPrice());
+
+        flight.setPlane(planeManager.read(flightRequest.getPlane()));
+
+        return flight;
 
     }
 }

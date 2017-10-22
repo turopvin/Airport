@@ -3,16 +3,12 @@ package org.academy.projects.controller.dto.mapping;
 import org.academy.projects.controller.dto.FlightResponse;
 import org.academy.projects.model.Flight;
 import org.dozer.loader.api.BeanMappingBuilder;
+import org.springframework.stereotype.Component;
 
 import static org.dozer.loader.api.TypeMappingOptions.oneWay;
 
-public class Flight2FlightResponse extends BeanMappingBuilder {
+@Component
+public class Flight2FlightResponse {
 
 
-    @Override
-    protected void configure() {
-        mapping(Flight.class, FlightResponse.class, oneWay())
-                .fields("cityFrom","cityFrom")
-                .fields("cityTo","cityTo");
-    }
 }
