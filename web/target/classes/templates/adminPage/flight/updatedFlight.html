@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <p th:object="${flight}"/>
+        City From: <p th:text="${flight.cityFrom}"/>
+        City To: <p th:text="${flight.cityTo}"/>
+        Departure date and time: <p th:text="${flight.departureDate}"/>
+        Arrival date and time: <p th:text="${flight.arrivalDate}"/>
+        Price: <p th:text="${flight.price}"/>
+        Plane: <p th:text="${flight.getPlane().model}"/>
+    <h3>This flight was successfully updated</h3>
+</body>
+</html>

@@ -5,7 +5,10 @@ import org.academy.projects.repository.plane.PlaneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class PlaneManager implements PlaneManagement {
 
     private final PlaneRepository planeRepository;
@@ -28,6 +31,7 @@ public class PlaneManager implements PlaneManagement {
         if (plane == null){
             throw new IllegalArgumentException("plane can't be empty");
         }
+        planeRepository.delete(plane);
 
     }
 
@@ -46,4 +50,5 @@ public class PlaneManager implements PlaneManagement {
         }
         return planeRepository.saveAndFlush(plane);
     }
+
 }

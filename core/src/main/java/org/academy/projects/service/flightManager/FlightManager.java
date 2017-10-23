@@ -1,13 +1,17 @@
 package org.academy.projects.service.flightManager;
 
+import org.academy.projects.model.Plane;
 import org.academy.projects.repository.flight.FlightRepository;
 import org.academy.projects.model.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class FlightManager implements FlightManagement {
 
     private final FlightRepository flightRepository;
@@ -17,6 +21,11 @@ public class FlightManager implements FlightManagement {
         this.flightRepository = flightRepository;
     }
 
+    /**
+     * Save new flight into database
+     * @param flight
+     * @return
+     */
     @Override
     public Flight create(Flight flight) {
         if (flight == null){
@@ -25,14 +34,11 @@ public class FlightManager implements FlightManagement {
         return flightRepository.save(flight);
     }
 
-    @Override
-    public void delete(Flight flight) {
-        if (flight == null){
-            throw new IllegalArgumentException("Flight can't be null");
-        }
-        flightRepository.delete(flight);
-    }
-
+    /**
+     * Returns list of flights found by cityTo
+     * @param cityTo
+     * @return
+     */
     @Override
     public List<Flight> findByCityTo(final String cityTo) {
         if (cityTo == null){
@@ -41,6 +47,11 @@ public class FlightManager implements FlightManagement {
         return flightRepository.findAllByCityTo(cityTo);
     }
 
+    /**
+     * Returns list of flights found by cityFrom
+     * @param cityFrom
+     * @return
+     */
     @Override
     public List<Flight> findByCityFrom(final String cityFrom) {
         if (cityFrom == null){
@@ -49,19 +60,49 @@ public class FlightManager implements FlightManagement {
         return flightRepository.findAllByCityFrom(cityFrom);
     }
 
+    /**
+     * Returns Flights found by cityTo and departureDate
+     * @param city
+     * @param date
+     * @return
+     */
     @Override
-    public Flight find(final Integer id) {
-        if (id== null) {
+    public Flight findByCityToAndDepartureDate(String city, Date date) {
+        if ((city == null)&&(date == null)) {
             throw new IllegalArgumentException("Flight can't be null");
         }
-        return flightRepository.findOne(id);
+        return flightRepository.findByCityToAndDepartureDate(city,date);
+    }
+
+    /**
+     * Delete flight by city cityTo and departure date
+     * @param city
+     * @param date
+     * @return
+     */
+    @Override
+    public Flight deleteByCityToAndDate(String city, Date date) {
+        if ((city == null)&&(date == null)) {
+            throw new IllegalArgumentException("City or date can't be null");
+        }
+        final Flight flight = flightRepository.findByCityToAndDepartureDate(city, date);
+        flightRepository.deleteByCityToAndDepartureDate(city,date);
+        return flight;
     }
 
     @Override
-    public Flight update(Flight flight) {
+    public Flight updateFlight(Flight flight){
         if (flight == null){
             throw new IllegalArgumentException("Flight can't be null");
         }
-        return flightRepository.saveAndFlush(flight);
+
+        flightRepository.update(flight.getCityFrom(),flight.getCityTo(),
+                flight.getDepartureDate(), flight.getArrivalDate(),
+                flight.getPrice(), flight.getPlane(), flight.getId());
+
+        final Flight updatedFlight = flightRepository.findByCityToAndDepartureDate(flight.getCityTo(), flight.getDepartureDate());
+
+        return  updatedFlight;
     }
+
 }

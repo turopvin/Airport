@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AdminPage</title>
+</head>
+<body>
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <form action="#" th:action="@{/foundFlight}" th:object="${flight}">
+        <p>CityTo: <input type="text" th:field="*{cityTo}"/></p>
+        <p>Departure Date and Time: <input type="date" th:field="*{departureDate}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</body>
+</html>

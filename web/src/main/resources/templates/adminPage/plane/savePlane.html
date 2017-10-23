@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AdminPage</title>
+</head>
+<body>
+    <!--/*@thymesVar id="plane" type="org.academy.projects.model.Plane"*/-->
+    <form action="#" th:action="@{/registeringPlane}" th:object="${plane}">
+        <p>Model: <input type="text" th:field="*{model}"/></p>
+        <p>Number of places: <input type="number" th:field="*{numberOfPlaces}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</body>
+</html>

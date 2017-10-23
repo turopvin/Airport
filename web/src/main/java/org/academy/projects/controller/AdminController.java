@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jws.WebParam;
+
 @Controller
 public class AdminController {
 
@@ -32,39 +34,112 @@ public class AdminController {
         this.planeManager = planeManager;
     }
 
+
+    /**
+     * Here begins a part deals with Flight operations
+     */
     @RequestMapping("/admin")
     public String admin(){
         return "adminPage/mainAdmin";
     }
 
+    /**
+     * Returns page with form to fill for saving new Flight
+     * @param flight
+     * @param model
+     * @return
+     */
     @RequestMapping("/savingFlight")
     public String savingFlight(FlightRequest flight, Model model) {
         model.addAttribute("flight", flight );
-        return "adminPage/saveFlight";
+        return "adminPage/flight/saveFlight";
     }
 
+    /**
+     * Returns page with Flight which was registered
+     * @param flightRequest
+     * @param model
+     * @return
+     */
     @RequestMapping("/registeringFlight")
     public String registeringFlight(@ModelAttribute FlightRequest flightRequest, Model model){
         final Flight flight = mapper.map(flightRequest);
         flightManager.create(flight);
         model.addAttribute("flight", flight);
-        return "adminPage/registeredFlight";
+        return "adminPage/flight/registeredFlight";
     }
 
+    /**
+     * Returns page with form to fill for deleting a Flight
+     * @param flight
+     * @param model
+     * @return
+     */
+    @RequestMapping("/deletingFlight")
+    public  String deletingFlight(Flight flight, Model model){
+        model.addAttribute("flight",flight);
+        return "adminPage/flight/deleteFlight";
+    }
+
+    /**
+     * Returns page with Flight which was deleted
+     * @param flight
+     * @param model
+     * @return
+     */
+    @RequestMapping("/deletedFlight")
+    public String deletedFlight(@ModelAttribute Flight flight, Model model){
+        final Flight deletedFlight = flightManager.deleteByCityToAndDate(flight.getCityTo(),flight.getDepartureDate());
+        model.addAttribute("flight",deletedFlight);
+        return "adminPage/flight/deletedFlight";
+    }
+
+    /**
+     * Returns page with form to fill to find the Flight
+     * @param flight
+     * @param model
+     * @return
+     */
+    @RequestMapping("/findingFlight")
+    public String findingFlight(Flight flight, Model model){
+        model.addAttribute("flight",flight);
+        return "adminPage/flight/findFlight";
+    }
+
+    /**
+     * Returns page with updated Flight
+     * @return
+     */
+    @RequestMapping("/foundFlight")
+    public String foundFlight(@ModelAttribute Flight flight, Model model){
+        final Flight foundFlight = flightManager.findByCityToAndDepartureDate(flight.getCityTo(),flight.getDepartureDate());
+        model.addAttribute("flight", foundFlight);
+        return "adminPage/flight/foundFlight";
+    }
+
+
+    @RequestMapping("/updatedFlight")
+    public String updatedFlight(@ModelAttribute Flight flight, Model model){
+        final Flight updatedFlight = flightManager.updateFlight(flight);
+        model.addAttribute("flight", updatedFlight);
+        return "adminPage/flight/updatedFlight";
+    }
+
+
+    /**
+     * Here begins a part deals with Plane operations
+     */
     @RequestMapping("/savingPlane")
     public String savingPlane(Model model){
         model.addAttribute("plane", new Plane());
-        return "adminPage/savePlane";
+        return "adminPage/plane/savePlane";
     }
 
     @RequestMapping("/registeringPlane")
     public String registeringPlane(@ModelAttribute Plane plane, Model model){
         planeManager.create(plane);
         model.addAttribute("plane", plane);
-        return "adminPage/registeredPlane";
+        return "adminPage/flight/registeredPlane";
     }
-
-
-
 
 }

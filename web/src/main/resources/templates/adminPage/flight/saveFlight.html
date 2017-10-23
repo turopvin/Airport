@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AdminPage</title>
+</head>
+<body>
+    <h3>Welcome to Airport</h3>
+    <h2>Please fill in following form</h2>
+
+    <!--/*@thymesVar id="flightRequest" type="org.academy.projects.controller.dto.FlightRequest"*/-->
+    <form action="#" th:action="@{/registeringFlight}" th:object="${flightRequest}">
+        <p>CityFrom: <input type="text" th:field="*{cityFrom}"/></p>
+        <p>CityTo: <input type="text" th:field="*{cityTo}"/></p>
+        <p>Departure Date and Time: <input type="date" th:field="*{departureDate}"/></p>
+        <p>Arrival Date and Time: <input type="date" th:field="*{arrivalDate}"/></p>
+        <p>Price: <input type="number" th:field="*{price}"/></p>
+        <p>Plane: <input type="number" th:field="*{plane}"/> </p> <h5>Choose 1(Boeing 737-500) or 2(Boeing 747-800)</h5>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+
+</body>
+</html>

@@ -2,18 +2,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AdminPage</title>
+    <title>Title</title>
 </head>
 <body>
-
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
     <p th:object="${flight}"/>
-    <h3>The new flight was registered</h3>
         City From: <p th:text="${flight.cityFrom}"/>
         City To: <p th:text="${flight.cityTo}"/>
         Departure date and time: <p th:text="${flight.departureDate}"/>
         Arrival date and time: <p th:text="${flight.arrivalDate}"/>
         Price: <p th:text="${flight.price}"/>
-        Plane: <p th:text="${flight.plane}"/>
-</body>
+        Plane: <p th:text="${flight.getPlane().model}"/>
+    <h3>This flight was successfully deleted</h3>
+    </body>
 </html>
