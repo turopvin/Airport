@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <div>This is your ticket</div>
+    <!--/*@thymesVar id="ticket" type="org.academy.projects.model.Ticket"*/-->
+    <p th:object="${ticket}"/>
+        <div>Your first name: <span th:text="${ticket.getPassenger().first_name}"/></div>
+        <div>Your last name: <span th:text="${ticket.getPassenger().last_name}"/></div>
+        <div>Your passport number: <span th:text="${ticket.getPassenger().passport_number}"/></div>
+
+        <div>From: <span th:text="${ticket.getFlight().cityFrom}"/></div>
+        <div>To: <span th:text="${ticket.getFlight().cityTo}"/></div>
+        <div>Date: <span th:text="${ticket.getFlight().departureDate}"/></div>
+</body>
+</html>

@@ -9,8 +9,9 @@
     <h4>Find your flight</h4>
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
     <form action="#" th:action="@{/findingTrip}" th:object="${flight}">
-        <p>From: <input type="text" value="Grodno" th:field="*{cityFrom}"/></p>
+        <p>From: <input type="text" th:field="*{cityFrom}"/></p>
         <p>To: <input type="text" th:field="*{cityTo}"/></p>
+        <p>Departure date: <input type="date" th:field="*{departureDate}"/></p>
         <p><input type="submit" value="Search"/></p>
     </form>
 </body>

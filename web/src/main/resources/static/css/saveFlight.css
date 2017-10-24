@@ -1,0 +1,94 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	color: #f1ede5;
+	font-size: 24px;
+}
+
+.clearfix:after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.container {
+	margin: 0 auto;
+	padding-top: 250px;
+	min-width: 750px;
+	width: 750px;
+}
+
+body {
+	background-color: #e2d0a2;
+	background: url(../img/bg/bg.vol-3.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+
+.title {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 40px;
+	cursor: default;
+}
+
+form {
+	width: 600px;
+	text-align: center;
+	
+}
+
+label {
+	text-align: left;
+	cursor: pointer;
+}
+
+.caption {
+	float: left;
+}
+
+.input {
+	float: right;
+	color: black;
+	border-radius: 5px;
+	font-weight: bolder;
+	margin-bottom: 10px;
+}
+
+.plane {
+	float: right;
+	padding-bottom: 0;
+	color: black;
+	font-weight: bolder;
+}
+
+.note {
+	float: right;
+	font-size: 15px;
+	font-style: italic;
+	cursor: default;
+}
+
+.btn {
+	margin-top: 20px;
+	color: #f1ede5;
+	background-color: transparent;	
+	border: none;
+	border-radius: 2px;
+	border: 1px solid #f1ede5;
+	height: 60px;
+	min-width: 250px;
+	font-size: 25px;
+	float: left;
+}
+
+.btn:hover {
+	color: #f1ede5;
+	border: 1px solid #650b31;
+	box-shadow: 1px 0 5px #650b31;
+
+	cursor: pointer;
+}

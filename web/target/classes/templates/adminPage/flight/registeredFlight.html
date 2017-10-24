@@ -2,18 +2,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AdminPage</title>
+    <title>Information about registered flight</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/registeredFlight.css" th:href="@{/css/registeredFlight.css}"/>
 </head>
 <body>
 
+    <main class="container clearfix">
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
     <p th:object="${flight}"/>
-    <h3>The new flight was registered</h3>
-        City From: <p th:text="${flight.cityFrom}"/>
-        City To: <p th:text="${flight.cityTo}"/>
-        Departure date and time: <p th:text="${flight.departureDate}"/>
-        Arrival date and time: <p th:text="${flight.arrivalDate}"/>
-        Price: <p th:text="${flight.price}"/>
-        Plane: <p th:text="${flight.getPlane().model}"/>
+        <div>City From: <span th:text="${flight.cityFrom}"/></div>
+        <div>City To: <span th:text="${flight.cityTo}"/></div>
+        <div>Departure date and time: <span th:text="${flight.departureDate}"/></div>
+        <div>Arrival date and time: <span th:text="${flight.arrivalDate}"/></div>
+        <div>Price: <span th:text="${flight.price}"/></div>
+        <div>Plane: <span th:text="${flight.getPlane().model}"/></div>
+    <div class="result">The new flight successfully registered</div>
+    </main>
 </body>
 </html>

@@ -13,13 +13,15 @@ import java.util.List;
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
    List<Flight> findAllByCityTo(String city);
+
    List<Flight> findAllByCityFrom(String city);
-   Integer deleteByCityToAndDepartureDate(String city, Date date);
+
+   Integer deleteByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
+
+
    Flight findByCityToAndDepartureDate(String city, Date date);
 
-   @Modifying
-   @Query("update Flight f set f.cityFrom=?1, f.cityTo=?2, f.departureDate=?3, " +
-           "f.arrivalDate=?4, f.price=?5, f.plane=?6 where f.id=?7")
-   void update(String cityFrom, String cityTo, Date departureDate,
-               Date arrivalDate, Integer price, Plane plane, Integer id);
+   Flight findByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
+
+   Flight findById(Integer id);
 }

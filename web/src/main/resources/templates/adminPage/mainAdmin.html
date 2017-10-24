@@ -2,12 +2,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AdminPage</title>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/mainAdmin.css" th:href="@{/css/mainAdmin.css}"/>
 </head>
 <body>
-    <p align="center"><a th:href="@{/savingFlight}">Save new flight</a></p>
-    <p align="center"><a th:href="@{/deletingFlight}">Delete a flight</a></p>
-    <p align="center"><a th:href="@{/findingFlight}">Find and update a flight</a> </p>
-    <p align="center"><a th:href="@{/savingPlane}">Save new plane</a></p>
+	<main class="container">
+		<ul>
+			<li><a th:href="@{/savingFlight}">Save new flight</a></li>
+			<li><a th:href="@{/deletingFlight}">Delete a flight</a></li>
+			<li><a th:href="@{/findingFlight}">Find and update a flight</a></li>
+			<li><a th:href="@{/savingPlane}">Save new plane</a></li>
+		</ul>		
+	</main>    
 </body>
 </html>

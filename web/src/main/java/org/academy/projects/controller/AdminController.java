@@ -89,7 +89,7 @@ public class AdminController {
      */
     @RequestMapping("/deletedFlight")
     public String deletedFlight(@ModelAttribute Flight flight, Model model){
-        final Flight deletedFlight = flightManager.deleteByCityToAndDate(flight.getCityTo(),flight.getDepartureDate());
+        final Flight deletedFlight = flightManager.deleteByCityFromAndCityToAndDepartureDate(flight);
         model.addAttribute("flight",deletedFlight);
         return "adminPage/flight/deletedFlight";
     }
@@ -107,20 +107,26 @@ public class AdminController {
     }
 
     /**
-     * Returns page with updated Flight
+     * Returns page with found Flight
      * @return
      */
     @RequestMapping("/foundFlight")
     public String foundFlight(@ModelAttribute Flight flight, Model model){
-        final Flight foundFlight = flightManager.findByCityToAndDepartureDate(flight.getCityTo(),flight.getDepartureDate());
+        final Flight foundFlight = flightManager.findByCityFromAndCityToAndDepartureDate(flight);
         model.addAttribute("flight", foundFlight);
         return "adminPage/flight/foundFlight";
     }
 
-
+    /**
+     * Returns page with updated Flight
+     * @param flight
+     * @param model
+     * @return
+     */
     @RequestMapping("/updatedFlight")
     public String updatedFlight(@ModelAttribute Flight flight, Model model){
         final Flight updatedFlight = flightManager.updateFlight(flight);
+        System.out.println(flight.getId());
         model.addAttribute("flight", updatedFlight);
         return "adminPage/flight/updatedFlight";
     }

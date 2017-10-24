@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <!--/*@thymesVar id="passenger" type="org.academy.projects.model.Passenger"*/-->
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <form action="#" th:action="@{/boughtTicket}" th:object="${passenger}">
+        <a>First Name:<input type="text" th:field="*{first_name}"/></a>
+        <a>Last Name:<input type="text" th:field="*{last_name}"/></a>
+        <a>Passport number:<input type="text" th:field="*{passport_number}"/></a>
+        <a>email:<input type="text" th:field="*{email}"/></a>
+        <input type="submit" value="Continue"/>
+    </form>
+    <a><span th:text="${flight.getId()}"/></a>
+</body>
+</html>

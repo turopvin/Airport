@@ -61,48 +61,52 @@ public class FlightManager implements FlightManagement {
     }
 
     /**
-     * Returns Flights found by cityTo and departureDate
-     * @param city
-     * @param date
+     *
+     * @param flight
      * @return
      */
     @Override
-    public Flight findByCityToAndDepartureDate(String city, Date date) {
-        if ((city == null)&&(date == null)) {
+    public Flight findByCityFromAndCityToAndDepartureDate(Flight flight) {
+        if (flight == null){
             throw new IllegalArgumentException("Flight can't be null");
         }
-        return flightRepository.findByCityToAndDepartureDate(city,date);
+        return flightRepository.findByCityFromAndCityToAndDepartureDate(flight.getCityFrom(),
+                flight.getCityTo(),flight.getDepartureDate());
+    }
+
+    @Override
+    public Flight findByID(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("id can't be null");
+        }
+        return flightRepository.findById(id);
     }
 
     /**
-     * Delete flight by city cityTo and departure date
-     * @param city
-     * @param date
+     *
+     * @param flight
      * @return
      */
     @Override
-    public Flight deleteByCityToAndDate(String city, Date date) {
-        if ((city == null)&&(date == null)) {
-            throw new IllegalArgumentException("City or date can't be null");
+    public Flight deleteByCityFromAndCityToAndDepartureDate(Flight flight) {
+        if (flight == null) {
+            throw new IllegalArgumentException("flight or date can't be null");
         }
-        final Flight flight = flightRepository.findByCityToAndDepartureDate(city, date);
-        flightRepository.deleteByCityToAndDepartureDate(city,date);
-        return flight;
+
+        final Flight foundFlight = flightRepository.findByCityFromAndCityToAndDepartureDate(flight.getCityFrom(),
+                flight.getCityTo(),flight.getDepartureDate());
+        flightRepository.deleteByCityFromAndCityToAndDepartureDate(foundFlight.getCityFrom(),
+                foundFlight.getCityTo(),foundFlight.getDepartureDate());
+        return foundFlight;
     }
+
 
     @Override
     public Flight updateFlight(Flight flight){
         if (flight == null){
             throw new IllegalArgumentException("Flight can't be null");
         }
-
-        flightRepository.update(flight.getCityFrom(),flight.getCityTo(),
-                flight.getDepartureDate(), flight.getArrivalDate(),
-                flight.getPrice(), flight.getPlane(), flight.getId());
-
-        final Flight updatedFlight = flightRepository.findByCityToAndDepartureDate(flight.getCityTo(), flight.getDepartureDate());
-
-        return  updatedFlight;
+        return  flightRepository.saveAndFlush(flight);
     }
 
 }

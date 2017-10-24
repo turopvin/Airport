@@ -1,0 +1,100 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	color: #f1ede5;
+	font-size: 24px;
+}
+
+.clearfix:after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.container {
+	margin: 0 auto;
+	padding-top: 20px;
+	min-width: 700px;
+	width: 870px;
+}
+
+
+body {
+	background-color: #e2d0a2;
+	background: url(../img/bg/bg_admin_1.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+div {
+	padding-bottom: 15px;
+}
+.title {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 30px;
+	cursor: default;
+}
+
+form {
+	width: 600px;
+	text-align: center;
+}
+
+label {
+	text-align: left;
+	cursor: pointer;
+}
+
+.caption {
+	float: left;
+}
+
+.input {
+	float: right;
+	color: black;
+	border-radius: 5px;
+	font-weight: bolder;
+	margin-bottom: 10px;
+	margin-right: 50px;
+}
+
+.plane {
+	float: right;
+	padding-bottom: 0;
+	color: black;
+	font-weight: bolder;
+	margin-right: 50px;
+}
+
+.note {
+	float: right;
+	font-size: 15px;
+	font-style: italic;
+	cursor: default;
+	margin-right: 50px;
+}
+
+.btn {
+	margin-top: 20px;
+	color: #f1ede5;
+	background-color: transparent;	
+	border: none;
+	border-radius: 2px;
+	border: 1px solid #f1ede5;
+	height: 60px;
+	min-width: 250px;
+	font-size: 25px;
+	float: left;
+	margin-bottom: 50px;
+}
+
+.btn:hover {
+	color: #f1ede5;
+	border: 1px solid #650b31;
+	box-shadow: 1px 0 5px #650b31;
+
+	cursor: pointer;
+}
