@@ -8,12 +8,14 @@
     <div>This is your ticket</div>
     <!--/*@thymesVar id="ticket" type="org.academy.projects.model.Ticket"*/-->
     <p th:object="${ticket}"/>
-        <div>Your first name: <span th:text="${ticket.getPassenger().first_name}"/></div>
-        <div>Your last name: <span th:text="${ticket.getPassenger().last_name}"/></div>
-        <div>Your passport number: <span th:text="${ticket.getPassenger().passport_number}"/></div>
+        <div>Your first name: <span th:text="${ticket.getPassenger().firstName}"/></div>
+        <div>Your last name: <span th:text="${ticket.getPassenger().lastName}"/></div>
+        <div>Your passport number: <span th:text="${ticket.getPassenger().passportNumber}"/></div>
 
         <div>From: <span th:text="${ticket.getFlight().cityFrom}"/></div>
         <div>To: <span th:text="${ticket.getFlight().cityTo}"/></div>
         <div>Date: <span th:text="${ticket.getFlight().departureDate}"/></div>
+
+    <a th:href="@{/user}">Home</a>
 </body>
 </html>

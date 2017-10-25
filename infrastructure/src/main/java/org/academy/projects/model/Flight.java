@@ -1,4 +1,5 @@
 package org.academy.projects.model;
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -31,11 +32,16 @@ public class Flight implements Serializable {
     @Column(name = "price")
     private Integer price;
 
+    @Column(name = "free_places")
+    private Integer freePlaces;
+
+
     @ManyToOne
     @JoinColumn(name = "plane_id")
     private Plane plane;
 
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "flight")
+    @OneToMany( mappedBy = "flight")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private Set<Ticket> ticketSet;
 
 
@@ -90,15 +96,35 @@ public class Flight implements Serializable {
         this.plane = plane;
     }
 
+    public Integer getFreePlaces() {
+        return freePlaces;
+    }
+
+    public void setFreePlaces(final Integer freePlaces) {
+        this.freePlaces = freePlaces;
+    }
+
     @Override
     public String toString() {
         return "Flight{"
-                + "cityFrom='" + cityFrom + '\''
-                + ", cityTo='" + cityTo + '\''
-                + ", departureDate=" + departureDate
-                + ", arrivalDate=" + arrivalDate
-                + ", price=" + price
-                + ", plane=" + plane +
-                '}';
+                + "id="
+                + id
+                + ", cityFrom='"
+                + cityFrom
+                + '\''
+                + ", cityTo='"
+                + cityTo
+                + '\''
+                + ", departureDate="
+                + departureDate
+                + ", arrivalDate="
+                + arrivalDate
+                + ", price="
+                + price
+                + ", freePlaces="
+                + freePlaces
+                + ", plane="
+                + plane
+                + '}';
     }
 }

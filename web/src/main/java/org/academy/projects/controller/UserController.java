@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,33 +28,60 @@ public class UserController {
     public UserController(FlightManager flightManager,
                           PassengerManager passengerManager,
                           TicketManager ticketManager){
+
         this.flightManager = flightManager;
+
         this.passengerManager = passengerManager;
+
         this.ticketManager = ticketManager;
     }
 
 
     @RequestMapping("/findingTrip")
     public String findingTrip(@ModelAttribute Flight flight, Model model){
-        final Flight foundFlight = flightManager.findByCityFromAndCityToAndDepartureDate(flight);
+
+        Flight foundFlight = flightManager.findByCityFromAndCityToAndDepartureDate(flight);
+
+        if (foundFlight.getFreePlaces() == 0){
+            return "userPage/noFreeSeats";
+        }
+
+        foundFlight = flightManager.buyTicket(foundFlight.getId());
+
         model.addAttribute("flight",foundFlight);
+
         return "userPage/fullSearch";
     }
 
     @RequestMapping("/buyTicket")
     public String buyTicket(Integer id,@ModelAttribute Passenger passenger, Model model){
+
         final Flight flight = flightManager.findByID(id);
+
         model.addAttribute("flight",flight);
+
         model.addAttribute("passenger", passenger);
+
         return "userPage/savePassenger";
     }
 
-    @RequestMapping("/boughtTicket")
-    public String boughtTicket(Integer id,
+    @RequestMapping("/boughtTicket/{id}")
+    public String boughtTicket(@PathVariable("id") Integer id,
                                @ModelAttribute Passenger passenger, Model model){
         final Passenger registeredPassenger = passengerManager.create(passenger);
+
         final Flight flight = flightManager.findByID(id);
-        System.out.println(flight.getCityFrom()+" "+ flight.getCityTo());
+
+        final Ticket ticket = new Ticket();
+
+        ticket.setFlight(flight);
+
+        ticket.setPassenger(registeredPassenger);
+
+        ticketManager.create(ticket);
+
+        model.addAttribute("ticket",ticket);
+
         return "userPage/savedTicket";
     }
 }

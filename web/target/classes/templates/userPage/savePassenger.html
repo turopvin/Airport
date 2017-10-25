@@ -7,13 +7,12 @@
 <body>
     <!--/*@thymesVar id="passenger" type="org.academy.projects.model.Passenger"*/-->
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
-    <form action="#" th:action="@{/boughtTicket}" th:object="${passenger}">
-        <a>First Name:<input type="text" th:field="*{first_name}"/></a>
-        <a>Last Name:<input type="text" th:field="*{last_name}"/></a>
-        <a>Passport number:<input type="text" th:field="*{passport_number}"/></a>
+    <form action="#" th:action="@{'/boughtTicket/'+${flight.getId()}}" th:object="${passenger}">
+        <a>First Name:<input type="text" th:field="*{firstName}"/></a>
+        <a>Last Name:<input type="text" th:field="*{lastName}"/></a>
+        <a>Passport number:<input type="text" th:field="*{passportNumber}"/></a>
         <a>email:<input type="text" th:field="*{email}"/></a>
-        <input type="submit" value="Continue"/>
+        <input type="submit" value="Buy"/>
     </form>
-    <a><span th:text="${flight.getId()}"/></a>
 </body>
 </html>

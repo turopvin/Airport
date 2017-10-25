@@ -14,19 +14,19 @@
 			<div>
 				<label class="clearfix">
 					<span class="caption">City From:</span>
-					<input type="text" th:field="*{cityFrom}"/>
+					<input type="text" required="required" th:field="*{cityFrom}"/>
 				</label>
 			</div>
     	<div>
 		    <label class="clearfix">
 		        <span class="caption">City To:</span>
-		        <input type="text" th:field="*{cityTo}"/>
+		        <input type="text" required="required" th:field="*{cityTo}"/>
 		    </label>
 	    </div>
 	    <div>
 		    <label class="clearfix">
 		        <span class="caption">Departure Date:</span>
-		        <input type="date" th:field="*{departureDate}"/>
+		        <input type="date" required="required" th:field="*{departureDate}"/>
 		    </label>
 	    </div>
 	    <input class="btn" type="submit" value="Find"/>

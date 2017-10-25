@@ -82,6 +82,22 @@ public class FlightManager implements FlightManagement {
         return flightRepository.findById(id);
     }
 
+    @Override
+    public Flight buyTicket(Integer id) {
+
+        if (id == null) {
+
+            throw new IllegalArgumentException("flight can't be bull");
+        }
+        Flight flight = flightRepository.findById(id);
+
+        flight.setFreePlaces(flight.getFreePlaces()-1);
+
+        flightRepository.save(flight);
+
+        return flight;
+    }
+
     /**
      *
      * @param flight

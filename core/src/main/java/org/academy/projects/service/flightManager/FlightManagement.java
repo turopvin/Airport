@@ -23,4 +23,8 @@ public interface FlightManagement {
 
     Flight findByID(Integer id);
 
+    Flight buyTicket(Integer id);
+
+
+
 }

@@ -20,33 +20,50 @@ public class PassengerManager implements PassengerManagement {
 
     @Override
     public Passenger create(Passenger passenger) {
+
         if (passenger == null){
+
             throw new IllegalArgumentException("Passenger can't be null");
+
         }
-        return passengerRepository.save(passenger);
+
+        if(passengerRepository.findByPassportNumber(passenger.getPassportNumber())!= null){
+
+            return passengerRepository.findByPassportNumber(passenger.getPassportNumber());
+
+        } else return passengerRepository.save(passenger);
     }
 
     @Override
     public void delete(Passenger passenger) {
+
         if (passenger == null) {
+
             throw new IllegalArgumentException("Passenger can't be null");
         }
+
         passengerRepository.delete(passenger);
     }
 
     @Override
     public Passenger read(Integer id) {
+
         if (id == null){
+
             throw new IllegalArgumentException("id can't be null");
         }
+
         return passengerRepository.findOne(id);
     }
 
     @Override
     public Passenger update(Passenger passenger) {
+
         if (passenger == null) {
+
             throw new IllegalArgumentException("passenger can't be null");
         }
+
         return passengerRepository.saveAndFlush(passenger);
     }
 }

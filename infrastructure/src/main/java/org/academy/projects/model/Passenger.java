@@ -1,5 +1,7 @@
 package org.academy.projects.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -11,46 +13,47 @@ public class Passenger implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private String first_name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column
-    private String last_name;
+    @Column(name = "last_name")
+    private String lastName;
 
-    @Column
-    private String passport_number;
+    @Column(name = "passport_number")
+    private String passportNumber;
 
-    @Column
+    @Column(name = "email")
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "passenger", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "passenger", fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private Set<Ticket> tickets;
 
     public Passenger() {
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(final String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(final String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(final String last_name) {
-        this.last_name = last_name;
+    public void setLastName(final String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPassport_number() {
-        return passport_number;
+    public String getPassportNumber() {
+        return passportNumber;
     }
 
-    public void setPassport_number(final String passport_number) {
-        this.passport_number = passport_number;
+    public void setPassportNumber(final String passportNumber) {
+        this.passportNumber = passportNumber;
     }
 
     public String getEmail() {
@@ -64,11 +67,11 @@ public class Passenger implements Serializable {
     @Override
     public String toString() {
         return "Passenger{"
-                + "first_name='" + first_name
+                + "firstName='" + firstName
                 + '\''
-                + ", last_name='" + last_name
+                + ", lastName='" + lastName
                 + '\''
-                + ", passport_number='" + passport_number
+                + ", passportNumber='" + passportNumber
                 + '\''
                 + ", email='" + email + '\'' +
                 '}';

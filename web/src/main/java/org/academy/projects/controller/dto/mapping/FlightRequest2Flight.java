@@ -32,6 +32,8 @@ public class FlightRequest2Flight {
 
         flight.setPlane(planeManager.read(flightRequest.getPlane()));
 
+        flight.setFreePlaces(planeManager.read(flightRequest.getPlane()).getNumberOfPlaces());
+
         return flight;
 
     }

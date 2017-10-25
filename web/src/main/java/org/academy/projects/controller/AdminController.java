@@ -145,7 +145,7 @@ public class AdminController {
     public String registeringPlane(@ModelAttribute Plane plane, Model model){
         planeManager.create(plane);
         model.addAttribute("plane", plane);
-        return "adminPage/flight/registeredPlane";
+        return "adminPage/plane/registeredPlane";
     }
 
 }

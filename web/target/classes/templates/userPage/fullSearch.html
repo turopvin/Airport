@@ -13,6 +13,6 @@
     <div>Arrival date and time: <span th:text="${flight.arrivalDate}"/></div>
     <div>Price: <span th:text="${flight.price}"/></div>
     <div>Plane: <span th:text="${flight.getPlane().model}"/></div>
-    <a th:href="@{/buyTicket(id=${flight.getId()})}">Buy</a>
+    <a th:href="@{/buyTicket(id=${flight.getId()})}">Continue</a>
 </body>
 </html>
