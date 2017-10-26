@@ -10,10 +10,7 @@ public interface FlightManagement {
 
     Flight create(Flight flight);
 
-
-    List<Flight> findByCityTo(String nameOfCity);
-
-    List<Flight> findByCityFrom(String nameOfCity);
+    List<Flight> findAllByCityFromAndCityTo(Flight flight);
 
     Flight updateFlight(Flight flight);
 
@@ -25,6 +22,6 @@ public interface FlightManagement {
 
     Flight buyTicket(Integer id);
 
-
+    void deleteAllPassedFlifght(Date date);
 
 }

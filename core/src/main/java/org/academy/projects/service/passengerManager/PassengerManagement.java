@@ -6,8 +6,14 @@ import org.springframework.beans.factory.parsing.PassThroughSourceExtractor;
 public interface PassengerManagement {
 
     Passenger create(Passenger passenger);
+
     void delete(Passenger passenger);
+
     Passenger read(Integer id);
+
     Passenger update(Passenger passenger);
+
+    Passenger findByPassportNumber(String passportNumber);
+
 
 }

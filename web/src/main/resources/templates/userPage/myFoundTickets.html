@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hrodno Airport</title>
+</head>
+<body>
+    <a>These are your tickets</a>
+
+
+        <!--/*@thymesVar id="ticket" type="org.academy.projects.model.Ticket"*/-->
+        <div th:each="ticket: ${ticket}" th:object="${ticket}">
+            <a th:text="${ticket}"/>
+        </div>
+
+</body>
+</html>

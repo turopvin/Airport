@@ -66,4 +66,13 @@ public class PassengerManager implements PassengerManagement {
 
         return passengerRepository.saveAndFlush(passenger);
     }
+
+    @Override
+    public Passenger findByPassportNumber(String passportNumber) {
+        if (passportNumber == null) {
+
+            throw new IllegalArgumentException("passportNUmber can't be null");
+        }
+        return passengerRepository.findByPassportNumber(passportNumber);
+    }
 }

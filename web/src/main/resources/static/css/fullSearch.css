@@ -1,8 +1,9 @@
 * {
 	font-family: "Montserrat", "Arial", sans-serif;
 	font-weight: lighter;
-	color: #f1ede5;
 	font-size: 24px;
+	color: #f1ede5;
+
 }
 
 .clearfix:after {
@@ -13,8 +14,8 @@
 
 .container {
 	padding: 20px;
-	min-width: 600px;
-	width: 600px;
+	min-width: 700px;
+	width: 700px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -24,8 +25,8 @@
  }
 
 body {
-	background-color: #405663;
-	background: url(../img/bg/bg.vol-3.jpg);
+	background-color: #1c3d69;
+	background: url(../img/bg/bg_fS.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
@@ -33,37 +34,30 @@ body {
 	height: 95vh;
 }
 
-label {
-	text-align: left;
-	cursor: pointer;
+div {
+	padding-bottom: 15px;
 }
 
-input {
-	float: right;
-	color: black;
-	margin-bottom: 10px;
-	border-radius: 5px;
+a {
+	display: block;
+	text-decoration: none;
+	margin-top: 10px;
+	width: 120px;
+	text-align: center;
 }
 
 .btn {
-	margin-top: 20px;
-	margin-left: 20px;
-	color: #f1ede5;
-	background-color: transparent;	
-	border: none;
-	border-radius: 2px;
+	padding: 15px;
+	color: #f1ede5;		
+	border-radius: 15px;
 	border: 1px solid #f1ede5;
-	height: 40px;
-	min-width: 150px;
-	font-size: 26px;
 	font-weight: lighter;
-	float: left;
 }
 
 .btn:hover {
-	color: #398835;
-	border: 1px solid #398835;
-	box-shadow: 1px 0 15px #398835;
-	font-weight: bold;
+	color: #eb8827;
+	border: 1px solid #eb8827;
+	box-shadow: 1px 0 15px #eb8827;
 	cursor: pointer;
+	font-weight: bold;
 }

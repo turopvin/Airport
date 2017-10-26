@@ -5,6 +5,17 @@
 	font-size: 24px;
 }
 
+h1 {
+	text-align: center;
+	color: #eb8827;
+	font-size: 60px;
+}
+
+h2 {
+	text-align: center;
+	font-size: 40px;
+}
+
 .clearfix:after {
 	content:'';
 	display: table;
@@ -12,15 +23,24 @@
 }
 
 .container {
+	width: 1200px;
+	min-width: 900px;
 	padding: 20px;
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ }
+
+form {
+	width: 600px;
 	margin: 0 auto;
-	padding-top: 250px;
-	min-width: 750px;
-	width: 750px;
 }
 
 body {
-	background-color: #be9a66;
+	background-color: #6d88ab;
 	background: url(../img/bg/bg.vol-3.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -29,48 +49,19 @@ body {
 	height: 95vh;
 }
 
-.title {
-	text-transform: uppercase;
-	font-weight: bold;
-	text-align: center;
-	font-size: 40px;
-	cursor: default;
-}
-
-form {
-	width: 600px;
-	text-align: center;
-	
-}
-
 label {
 	text-align: left;
 	cursor: pointer;
 }
 
-.caption {
-	float: left;
-}
-
-.input {
+input {
 	float: right;
-	color: black;
-	border-radius: 5px;
-	margin-bottom: 10px;
-}
-
-.plane {
-	float: right;
-	padding-bottom: 0;
 	color: black;
 	font-weight: bolder;
-}
-
-.note {
-	float: right;
-	font-size: 15px;
-	font-style: italic;
-	cursor: default;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	font-weight: lighter;
+	font-size: 24px;
 }
 
 .btn {
@@ -81,7 +72,7 @@ label {
 	border: none;
 	border-radius: 2px;
 	border: 1px solid #f1ede5;
-	height: 42px;
+	height: 40px;
 	min-width: 150px;
 	font-size: 26px;
 	font-weight: lighter;
@@ -89,9 +80,9 @@ label {
 }
 
 .btn:hover {
-	color: #2f712b;
-	border: 1px solid #2f712b;
-	box-shadow: 1px 0 15px #2f712b;
-	font-weight: bold;
+	color: #eb8827;
+	border: 1px solid #eb8827;
+	box-shadow: 1px 0 15px #eb8827;
+	font-weight: bolder;
 	cursor: pointer;
 }

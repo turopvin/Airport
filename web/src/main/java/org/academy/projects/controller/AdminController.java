@@ -7,13 +7,11 @@ import org.academy.projects.model.Flight;
 import org.academy.projects.model.Plane;
 import org.academy.projects.service.flightManager.FlightManager;
 import org.academy.projects.service.planeManager.PlaneManager;
-import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jws.WebParam;
 
 @Controller
 public class AdminController {
@@ -38,10 +36,7 @@ public class AdminController {
     /**
      * Here begins a part deals with Flight operations
      */
-    @RequestMapping("/admin")
-    public String admin(){
-        return "adminPage/mainAdmin";
-    }
+
 
     /**
      * Returns page with form to fill for saving new Flight

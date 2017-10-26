@@ -6,15 +6,8 @@
 
 }
 
-.clearfix:after {
-	content:'';
-	display: table;
-	clear: both;
-}
-
 .container {
-	/*border: 1px solid red;*/
-
+	padding: 20px;
 	min-width: 700px;
 	width: 700px;
     margin: 0;
@@ -40,9 +33,10 @@ div {
 }
 
 .result {
+	display: block;
 	padding-top: 20px;
 	text-align: center;
-	font-style: italic;
 	font-size: 40px;
+	font-weight: bold;
 	margin-bottom: 50px;
 }

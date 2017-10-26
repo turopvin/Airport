@@ -1,20 +1,13 @@
 * {
 	font-family: "Montserrat", "Arial", sans-serif;
 	font-weight: lighter;
-	font-size: 26px;
+	font-size: 24px;
 	color: #f1ede5;
 
 }
 
-.clearfix:after {
-	content:'';
-	display: table;
-	clear: both;
-}
-
 .container {
-	/*border: 1px solid red;*/
-
+	padding: 20px;
 	min-width: 700px;
 	width: 700px;
     margin: 0;
@@ -26,7 +19,7 @@
  }
 
 body {
-	background-color: #1c3d69;
+	background-color: #be9a66;
 	background: url(../img/bg/bg_admin_1.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -42,7 +35,7 @@ div {
 .result {
 	padding-top: 20px;
 	text-align: center;
-	font-style: italic;
 	font-size: 40px;
+	font-weight: bold;
 	margin-bottom: 50px;
 }

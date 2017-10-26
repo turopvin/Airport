@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grodno Airport</title>
+</head>
+<body>
+    <a>Please enter your passport number</a>
+    <!--/*@thymesVar id="passenger" type="org.academy.projects.model.Passenger"*/-->
+    <form action="#" th:action="@{/myTickets}" th:object="${passenger}">
+        <p>Passport number: <input required="required" type="text" th:field="*{passportNumber}"/></p>
+        <p><input type="submit" value="Show my tickets"/></p>
+    </form>
+</body>
+</html>

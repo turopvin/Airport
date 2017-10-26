@@ -2,14 +2,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AdminPage</title>
+    <title>Save Plane</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/savePlane.css" th:href="@{/css/savePlane.css}"/>
+    <style>
+    	body {background-color: #1c3d69;}
+    </style>
 </head>
 <body>
-    <!--/*@thymesVar id="plane" type="org.academy.projects.model.Plane"*/-->
-    <form action="#" th:action="@{/registeringPlane}" th:object="${plane}">
-        <p>Model: <input type="text" th:field="*{model}"/></p>
-        <p>Number of places: <input type="number" th:field="*{numberOfPlaces}"/></p>
-        <p><input type="submit" value="Submit"/></p>
-    </form>
+	<!--/*@thymesVar id="plane" type="org.academy.projects.model.Plane"*/-->
+    <main class="container clearfix">
+    	<form action="#" th:action="@{/registeringPlan}" th:object="${plane}">
+	    	<div>
+			    <label class="clearfix"><span class="caption">Model:</span>
+			        <input type="text" th:field="*{model}"/>
+			    </label>
+		    </div>
+		    <div>
+			    <label class="clearfix"><span class="caption">Number of places:</span>
+			        <input type="number" th:field="*{numberOfPlaces}"/>
+			    </label>
+		    </div>
+		    		<input class="btn" type="submit" value="Save"/>
+	    </form>
+	</main>
 </body>
 </html>

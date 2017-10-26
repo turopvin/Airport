@@ -64,6 +64,10 @@ public class Passenger implements Serializable {
         this.email = email;
     }
 
+    public Set<Ticket> getTickets(){
+        return tickets;
+    }
+
     @Override
     public String toString() {
         return "Passenger{"

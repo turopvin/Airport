@@ -5,22 +5,24 @@
     <title>Informaition about found Flight</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
     <link rel="stylesheet" type="text/css" href="../../../static/css/foundFlight.css" th:href="@{/css/foundFlight.css}"/>
+        <style type="text/css">
+           body {background-color: #be9a66;}
+    </style>
 </head>
 
 <body>
     <main class="container">
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
         <p th:object="${flight}"/>
-        <div>City From: <span th:text="${flight.cityFrom}"/></div>
-        <div>City To: <span th:text="${flight.cityTo}"/></div>
-        <div>Departure date and time: <span th:text="${flight.departureDate}"/></div>
-        <div>Arrival date and time: <span th:text="${flight.arrivalDate}"/></div>
-        <div>Price: <span th:text="${flight.price}"/></div>
-        <div>Plane: <span th:text="${flight.getPlane().model}"/></div>
+        <div>City From:<span th:text="${flight.cityFrom}"/></div>
+        <div>City To:<span th:text="${flight.cityTo}"/></div>
+        <div>Departure date and time:<span th:text="${flight.departureDate}"/></div>
+        <div>Arrival date and time:<span th:text="${flight.arrivalDate}"/></div>
+        <div>Price:<span th:text="${flight.price}"/></div>
+        <div class="last-row">Plane:<span th:text="${flight.getPlane().model}"/></div>
         <span class="title">If you want to update this flight fill in the following form and press update</span>
     
-        <form class="container" action="#" th:action="@{/updatedFlight}" th:object="${flight}">
-           
+        <form class="container" action="#" th:action="@{/updatedFlight}" th:object="${flight}">           
             <div>
                 <label class="clearfix">
                     <span class="caption">City From:</span>
@@ -60,8 +62,6 @@
             </div>
             <input class="btn" type="submit" value="Update"/>
         </form>
-
     </main>
-
 </body>
 </html>

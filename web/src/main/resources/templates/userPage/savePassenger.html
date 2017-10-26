@@ -2,17 +2,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <title>Save Passenger</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/savePassenger.css" th:href="@{/css/savePassenger.css}"/>
+        <style type="text/css">
+            body {
+        background-color: #191724;    
+        }
+    </style>
 </head>
 <body>
+
     <!--/*@thymesVar id="passenger" type="org.academy.projects.model.Passenger"*/-->
     <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <main class="container">
+        <h1>Save Passenger</h1>
     <form action="#" th:action="@{'/boughtTicket/'+${flight.getId()}}" th:object="${passenger}">
-        <a>First Name:<input type="text" th:field="*{firstName}"/></a>
-        <a>Last Name:<input type="text" th:field="*{lastName}"/></a>
-        <a>Passport number:<input type="text" th:field="*{passportNumber}"/></a>
-        <a>email:<input type="text" th:field="*{email}"/></a>
-        <input type="submit" value="Buy"/>
+        <label class="clearfix">First Name:<input type="text" th:field="*{firstName}"/></label>
+        <label class="clearfix">Last Name:<input type="text" th:field="*{lastName}"/></label>
+        <label class="clearfix">Passport number:<input type="text" th:field="*{passportNumber}"/></label>
+        <label class="clearfix">email:<input type="text" th:field="*{email}"/></label>
+        <input class="btn" type="submit" value="Buy"/>
     </form>
+    </main>
 </body>
 </html>

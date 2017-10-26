@@ -5,6 +5,10 @@
     <title>Grodno Airport</title>
 </head>
 <body>
-    <h3 align="center">Sorry, there are no available seats on this flight</h3>
+
+        <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+        <div th:each="flight: ${flight}" th:object="${flight}">
+            <a th:text="${flight}"/>
+        </div>
 </body>
 </html>

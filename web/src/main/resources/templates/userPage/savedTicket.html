@@ -2,20 +2,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <title>Saved Ticket</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/savedTicket.css" th:href="@{/css/savedTicket.css}"/>
+        <style type="text/css">
+            body {
+        background-color: #191724;    
+        }
+    </style>
 </head>
 <body>
-    <div>This is your ticket</div>
-    <!--/*@thymesVar id="ticket" type="org.academy.projects.model.Ticket"*/-->
-    <p th:object="${ticket}"/>
-        <div>Your first name: <span th:text="${ticket.getPassenger().firstName}"/></div>
-        <div>Your last name: <span th:text="${ticket.getPassenger().lastName}"/></div>
-        <div>Your passport number: <span th:text="${ticket.getPassenger().passportNumber}"/></div>
+    <main class="container clearfix">
+        <h1>This is your ticket</h1>
+        <!--/*@thymesVar id="ticket" type="org.academy.projects.model.Ticket"*/-->
+        <p th:object="${ticket}"/>
+            <div>Your first name: <span th:text="${ticket.getPassenger().firstName}"/></div>
+            <div>Your last name: <span th:text="${ticket.getPassenger().lastName}"/></div>
+            <div>Your passport number: <span th:text="${ticket.getPassenger().passportNumber}"/></div>
+            <div>From: <span th:text="${ticket.getFlight().cityFrom}"/></div>
+            <div>To: <span th:text="${ticket.getFlight().cityTo}"/></div>
+            <div>Date: <span th:text="${ticket.getFlight().departureDate}"/></div>
 
-        <div>From: <span th:text="${ticket.getFlight().cityFrom}"/></div>
-        <div>To: <span th:text="${ticket.getFlight().cityTo}"/></div>
-        <div>Date: <span th:text="${ticket.getFlight().departureDate}"/></div>
-
-    <a th:href="@{/user}">Home</a>
+        <a class="btn" th:href="@{/user}">Home</a>
+    </main>
 </body>
 </html>

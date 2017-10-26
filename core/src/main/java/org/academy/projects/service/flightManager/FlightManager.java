@@ -21,6 +21,14 @@ public class FlightManager implements FlightManagement {
         this.flightRepository = flightRepository;
     }
 
+
+
+    @Override
+    public List<Flight> findAllByCityFromAndCityTo(Flight flight) {
+
+        return flightRepository.findAllByCityFromAndCityTo(flight.getCityFrom(), flight.getCityTo());
+    }
+
     /**
      * Save new flight into database
      * @param flight
@@ -34,31 +42,6 @@ public class FlightManager implements FlightManagement {
         return flightRepository.save(flight);
     }
 
-    /**
-     * Returns list of flights found by cityTo
-     * @param cityTo
-     * @return
-     */
-    @Override
-    public List<Flight> findByCityTo(final String cityTo) {
-        if (cityTo == null){
-            throw new IllegalArgumentException("Name of city can't be null");
-        }
-        return flightRepository.findAllByCityTo(cityTo);
-    }
-
-    /**
-     * Returns list of flights found by cityFrom
-     * @param cityFrom
-     * @return
-     */
-    @Override
-    public List<Flight> findByCityFrom(final String cityFrom) {
-        if (cityFrom == null){
-            throw new IllegalArgumentException("Name of city can't be null");
-        }
-        return flightRepository.findAllByCityFrom(cityFrom);
-    }
 
     /**
      *
@@ -89,6 +72,8 @@ public class FlightManager implements FlightManagement {
 
             throw new IllegalArgumentException("flight can't be bull");
         }
+
+
         Flight flight = flightRepository.findById(id);
 
         flight.setFreePlaces(flight.getFreePlaces()-1);
@@ -113,6 +98,7 @@ public class FlightManager implements FlightManagement {
                 flight.getCityTo(),flight.getDepartureDate());
         flightRepository.deleteByCityFromAndCityToAndDepartureDate(foundFlight.getCityFrom(),
                 foundFlight.getCityTo(),foundFlight.getDepartureDate());
+
         return foundFlight;
     }
 
@@ -125,4 +111,8 @@ public class FlightManager implements FlightManagement {
         return  flightRepository.saveAndFlush(flight);
     }
 
+    @Override
+    public void deleteAllPassedFlifght(Date date) {
+        flightRepository.deleteAllByDepartureDateIsBefore(date);
+    }
 }

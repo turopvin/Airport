@@ -1,20 +1,15 @@
 * {
 	font-family: "Montserrat", "Arial", sans-serif;
 	font-weight: lighter;
-	color: #f1ede5;
 	font-size: 24px;
-}
+	color: #f1ede5;
 
-.clearfix:after {
-	content:'';
-	display: table;
-	clear: both;
 }
 
 .container {
 	padding: 20px;
-	min-width: 600px;
-	width: 600px;
+	min-width: 700px;
+	width: 700px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -24,8 +19,8 @@
  }
 
 body {
-	background-color: #405663;
-	background: url(../img/bg/bg.vol-3.jpg);
+	background-color: #1c3d69;
+	background: url(../img/bg/ticket.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
@@ -33,27 +28,28 @@ body {
 	height: 95vh;
 }
 
-label {
-	text-align: left;
-	cursor: pointer;
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 50px;
+	color: #eb8827;
 }
 
-input {
-	float: right;
-	color: black;
-	margin-bottom: 10px;
-	border-radius: 5px;
+div {
+	padding-bottom: 15px;
 }
 
 .btn {
+	text-align: center;
 	margin-top: 20px;
 	margin-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	color: #f1ede5;
 	background-color: transparent;	
 	border: none;
 	border-radius: 2px;
 	border: 1px solid #f1ede5;
-	height: 40px;
 	min-width: 150px;
 	font-size: 26px;
 	font-weight: lighter;
@@ -61,9 +57,9 @@ input {
 }
 
 .btn:hover {
-	color: #398835;
-	border: 1px solid #398835;
-	box-shadow: 1px 0 15px #398835;
-	font-weight: bold;
+	color: #eb8827;
+	border: 1px solid #eb8827;
+	box-shadow: 1px 0 15px #eb8827;
 	cursor: pointer;
+	font-weight: bold;
 }

@@ -14,6 +14,7 @@ public class Ticket implements Serializable {
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
+
     @ManyToOne
     @JoinColumn(name = "flight_id")
     private Flight flight;
@@ -32,5 +33,21 @@ public class Ticket implements Serializable {
 
     public void setFlight(final Flight flight) {
         this.flight = flight;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{"
+                + "passenger="
+                + passenger .getFirstName()
+                + " "
+                + passenger.getLastName()
+                + ", flight="
+                + flight.getCityFrom()
+                + " "
+                + flight.getCityTo()
+                + " "
+                + flight.getDepartureDate()
+                + '}';
     }
 }
