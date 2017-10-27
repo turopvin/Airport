@@ -23,4 +23,7 @@ public interface FlightRepository extends JpaRepository<Flight, Integer> {
    Flight findById(Integer id);
 
    void deleteAllByDepartureDateIsBefore(Date date);
+
+   List<Flight> findAllByCityFrom(String city);
+
 }

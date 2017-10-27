@@ -22,6 +22,8 @@ public interface FlightManagement {
 
     Flight buyTicket(Integer id);
 
-    void deleteAllPassedFlifght(Date date);
+    void deleteAllPassedFlight(Date date);
+
+    List<Flight> findAllByCityFrom(String city);
 
 }

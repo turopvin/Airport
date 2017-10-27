@@ -48,6 +48,11 @@ public class Flight implements Serializable {
     public Integer getId(){
         return id;
     }
+
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
     public Integer getPrice() {
         return price;
     }

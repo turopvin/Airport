@@ -59,6 +59,11 @@ public class UserController {
     @RequestMapping("/schedule")
     public String schedule(@ModelAttribute Flight flight, Model model){
         final List<Flight> flights = flightManager.findAllByCityFromAndCityTo(flight);
+        if (flights.isEmpty()) {
+            final List<Flight> list = flightManager.findAllByCityFrom("Grodno");
+            model.addAttribute("flight",list);
+            return "userPage/allFlights";
+        }
         model.addAttribute("flight", flights);
         return "userPage/schedule";
     }

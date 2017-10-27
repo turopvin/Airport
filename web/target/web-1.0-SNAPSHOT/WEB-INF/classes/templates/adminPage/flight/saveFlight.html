@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Save Flight</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/saveFlight.css" th:href="@{/css/saveFlight.css}"/>
+    <style type="text/css">
+	    body {background-color: #324959;}
+    </style>
+</head>
+<body>
+	<!--/*@thymesVar id="flightRequest" type="org.academy.projects.controller.dto.FlightRequest"*/-->
+	<main>
+		<form class="container" action="#" th:action="@{/registeringFlight}" th:object="${flightRequest}">
+	    	<span class="title">Please fill in following form</span>
+	        <div>
+		        <label class="clearfix">
+		        	<span class="caption">City From:</span>
+		        	<input class="input" required="required" type="text" th:field="*{cityFrom}"/>
+		        </label>
+	        </div>
+	        <div>
+		        <label class="clearfix">
+		        	<span class="caption">City To:</span>
+		        	<input class="input" required="required" type="text" th:field="*{cityTo}"/>
+		        </label>
+	    	</div>
+	    	<div>
+		        <label class="clearfix">
+		        	<span class="caption">Departure Date and Time:</span>
+		        	<input class="input" required="required" type="date" th:field="*{departureDate}"/>
+		        </label>
+		    </div>
+		    <div>
+		        <label class="clearfix">
+		        	<span class="caption">Arrival Date and Time:</span> 
+		        	<input class="input" required="required" type="date" th:field="*{arrivalDate}"/>
+		        </label>
+		    </div>
+		    <div>
+		        <label class="clearfix">
+		        	<span class="caption">Price:</span> 
+		        	<input class="input" required="required" type="number" th:field="*{price}"/>
+		        </label>
+		    </div>
+		    <div>
+		        <label class="clearfix">
+		        	<span class="caption">Plane:</span> 
+		        	<input class="plane" required="required" type="number" th:field="*{plane}"/>
+		        </label>
+		        <span class="note">note: Choose 1(Boeing 737-500) or 2(Boeing 737-800)</span>		    	
+		    </div>
+	        <input class="btn" type="submit" value="Create"/>
+	    </form>
+    </main>
+</body>
+</html>
