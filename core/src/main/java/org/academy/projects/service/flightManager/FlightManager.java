@@ -16,192 +16,128 @@ import java.util.List;
 @Transactional
 public class FlightManager implements FlightManagement {
 
-    private final static Logger log = LoggerFactory.getLogger(FlightManager.class);
-
     private final FlightRepository flightRepository;
 
     @Autowired
-    public FlightManager(final FlightRepository flightRepository){
+    public FlightManager(final FlightRepository flightRepository) {
         this.flightRepository = flightRepository;
     }
 
-
-    /**
-     * Return list of flights
-     * by cityFrom and cityTo
-     * @param flight
-     * @return
-     */
     @Override
-    public List<Flight> findAllByCityFromAndCityTo(Flight flight) {
+    public List<Flight> findAllByCityFromAndCityTo(final Flight flight) {
 
-        if (flight == null){
+        if (flight == null) {
 
-            log.error("Flight can't be null "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return flightRepository.findAllByCityFromAndCityTo(flight.getCityFrom(), flight.getCityTo());
     }
 
-    /**
-     * Save new flight into database
-     * @param flight
-     * @return
-     */
     @Override
-    public Flight create(Flight flight) {
-        if (flight == null){
+    public Flight create(final Flight flight) {
 
-            log.error("Flight can't be null "+FlightManager.class.getName());
+        if (flight == null) {
 
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
+
         return flightRepository.save(flight);
     }
 
-
-    /**
-     * Return flight by cityFrom, cityTo and date
-     * @param flight
-     * @return
-     */
     @Override
-    public Flight findByCityFromAndCityToAndDepartureDate(Flight flight) {
+    public Flight findByCityFromAndCityToAndDepartureDate(final Flight flight) {
 
-        if (flight == null){
+        if (flight == null) {
 
-            log.error("Flight can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
-        return flightRepository.findByCityFromAndCityToAndDepartureDate(flight.getCityFrom(),
-                flight.getCityTo(),flight.getDepartureDate());
+        final Flight foundFlight = flightRepository.findByCityFromAndCityToAndDepartureDate(flight.getCityFrom(),
+                flight.getCityTo(), flight.getDepartureDate());
+
+        if (foundFlight == null) {
+
+            throw new IllegalArgumentException("There is no such flight");
+
+        }
+
+        return foundFlight;
     }
 
-
-    /**
-     * Return flight by ID
-     * @param id
-     * @return
-     */
     @Override
-    public Flight findByID(Integer id) {
+    public Flight findByID(final Integer id) {
 
         if (id == null) {
 
-            log.error("ID can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return flightRepository.findById(id);
     }
 
-
-    /**
-     * Reduce number of free places
-     * @param id
-     * @return
-     */
     @Override
-    public Flight buyTicket(Integer id) {
+    public Flight buyTicket(final Integer id) {
 
         if (id == null) {
 
-            log.error("ID can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
-
 
         Flight flight = flightRepository.findById(id);
 
-        flight.setFreePlaces(flight.getFreePlaces()-1);
+        flight.setFreePlaces(flight.getFreePlaces() - 1);
 
         flightRepository.save(flight);
 
         return flight;
     }
 
-    /**
-     * Delete and return flight by
-     * cityFrom, cityTo and date
-     * @param flight
-     * @return
-     */
     @Override
-    public Flight deleteByCityFromAndCityToAndDepartureDate(Flight flight) {
+    public Flight deleteByCityFromAndCityToAndDepartureDate(final Flight flight) {
+
         if (flight == null) {
 
-            log.error("Flight can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         final Flight foundFlight = flightRepository.findByCityFromAndCityToAndDepartureDate(flight.getCityFrom(),
-                flight.getCityTo(),flight.getDepartureDate());
+                flight.getCityTo(), flight.getDepartureDate());
 
         flightRepository.deleteByCityFromAndCityToAndDepartureDate(foundFlight.getCityFrom(),
-                foundFlight.getCityTo(),foundFlight.getDepartureDate());
+                foundFlight.getCityTo(), foundFlight.getDepartureDate());
 
         return foundFlight;
     }
 
-
-    /**
-     * Update flight
-     * @param flight
-     * @return
-     */
     @Override
-    public Flight updateFlight(Flight flight){
+    public Flight updateFlight(final Flight flight) {
 
-        if (flight == null){
+        if (flight == null) {
 
-            log.error("Flight can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
-
-        return  flightRepository.save(flight);
+        return flightRepository.save(flight);
     }
 
-
-    /**
-     * Delete all out of date flights
-     * @param date
-     */
     @Override
-    public void deleteAllPassedFlight(Date date) {
+    public void deleteAllPassedFlight(final Date date) {
 
         if (date == null) {
 
-            log.error("Date can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         flightRepository.deleteAllByDepartureDateIsBefore(date);
     }
 
-
-    /**
-     * Return all flights by cityFrom
-     * @param city
-     * @return
-     */
     @Override
-    public List<Flight> findAllByCityFrom(String city) {
+    public List<Flight> findAllByCityFrom(final String city) {
 
         if (city == null) {
 
-            log.error("City can't be null in "+FlightManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return flightRepository.findAllByCityFrom(city);

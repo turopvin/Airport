@@ -10,10 +10,9 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @PropertySource("classpath:/application.properties")
 @ComponentScan(basePackages = "org.academy.projects")
-public class Application{
+public class Application {
 
-
-    public static void main(String...args){
+    public static void main(String... args) {
         SpringApplication.run(Application.class, args);
     }
 }

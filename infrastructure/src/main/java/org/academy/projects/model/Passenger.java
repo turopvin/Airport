@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "passengers")
 public class Passenger implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -64,7 +65,7 @@ public class Passenger implements Serializable {
         this.email = email;
     }
 
-    public Set<Ticket> getTickets(){
+    public Set<Ticket> getTickets() {
         return tickets;
     }
 

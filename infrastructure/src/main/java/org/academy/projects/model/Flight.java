@@ -1,4 +1,5 @@
 package org.academy.projects.model;
+
 import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,17 +36,15 @@ public class Flight implements Serializable {
     @Column(name = "free_places")
     private Integer freePlaces;
 
-
     @ManyToOne
     @JoinColumn(name = "plane_id")
     private Plane plane;
 
-    @OneToMany( mappedBy = "flight")
+    @OneToMany(mappedBy = "flight")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private Set<Ticket> ticketSet;
 
-
-    public Integer getId(){
+    public Integer getId() {
         return id;
     }
 

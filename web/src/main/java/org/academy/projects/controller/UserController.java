@@ -28,7 +28,7 @@ public class UserController {
     @Autowired
     public UserController(FlightManager flightManager,
                           PassengerManager passengerManager,
-                          TicketManager ticketManager){
+                          TicketManager ticketManager) {
 
         this.flightManager = flightManager;
 
@@ -37,58 +37,71 @@ public class UserController {
         this.ticketManager = ticketManager;
     }
 
-
     /**
      * Returns a page with form to fill
      * to see schedule
+     *
      * @param model
      * @return
      */
     @RequestMapping("/showSchedule")
-    public String showSchedule(Model model){
+    public String showSchedule(Model model) {
+
         model.addAttribute("flight", new Flight());
+
         return "userPage/findSchedule";
     }
 
     /**
      * Returns a page with schedule
+     *
      * @param flight
      * @param model
      * @return
      */
     @RequestMapping("/schedule")
-    public String schedule(@ModelAttribute Flight flight, Model model){
+    public String schedule(@ModelAttribute Flight flight, Model model) {
+
         final List<Flight> flights = flightManager.findAllByCityFromAndCityTo(flight);
+
         if (flights.isEmpty()) {
+
             final List<Flight> list = flightManager.findAllByCityFrom("Grodno");
-            model.addAttribute("flight",list);
+
+            model.addAttribute("flight", list);
+
             return "userPage/allFlights";
         }
+
         model.addAttribute("flight", flights);
+
         return "userPage/schedule";
     }
 
     /**
      * Returns page with form to fill
      * (passport number) to find list of tickets
+     *
      * @param model
      * @return
      */
     @RequestMapping("/showTickets")
-    public String showTickets(Model model){
+    public String showTickets(Model model) {
+
         model.addAttribute("passenger", new Passenger());
 
         return "userPage/formToFindMyTickets";
     }
 
     /**
-     *Returns list of tickets
+     * Returns list of tickets
+     *
      * @param passenger
      * @param model
      * @return
      */
     @RequestMapping("/myTickets")
-    public String myTickets(@ModelAttribute Passenger passenger, Model model){
+    public String myTickets(@ModelAttribute Passenger passenger, Model model) {
 
         final Passenger foundPassenger = passengerManager.findByPassportNumber(passenger.getPassportNumber());
 
@@ -101,53 +114,58 @@ public class UserController {
 
     /**
      * Returns a form to fill to find a flight
+     *
      * @param model
      * @return
      */
     @RequestMapping("/findFlight")
-    public String findFlight(Model model){
+    public String findFlight(Model model) {
+
         model.addAttribute(new Flight());
+
         return "userPage/formToSearch";
     }
 
     /**
      * Returns page with found flight
+     *
      * @param flight
      * @param model
      * @return
      */
     @RequestMapping("/findingTrip")
-    public String findingTrip(@ModelAttribute Flight flight, Model model){
+    public String findingTrip(@ModelAttribute Flight flight, Model model) {
 
         Flight foundFlight = flightManager.findByCityFromAndCityToAndDepartureDate(flight);
 
         if (foundFlight == null) {
             return "userPage/noSuchFlight";
         }
-        if (foundFlight.getFreePlaces() == 0){
+        if (foundFlight.getFreePlaces() == 0) {
             return "userPage/noFreeSeats";
         }
 
         foundFlight = flightManager.buyTicket(foundFlight.getId());
 
-        model.addAttribute("flight",foundFlight);
+        model.addAttribute("flight", foundFlight);
 
         return "userPage/fullSearch";
     }
 
     /**
      * Retutrns a form for registering new passenger
+     *
      * @param id
      * @param passenger
      * @param model
      * @return
      */
     @RequestMapping("/buyTicket")
-    public String buyTicket(Integer id,@ModelAttribute Passenger passenger, Model model){
+    public String buyTicket(Integer id, @ModelAttribute Passenger passenger, Model model) {
 
         final Flight flight = flightManager.findByID(id);
 
-        model.addAttribute("flight",flight);
+        model.addAttribute("flight", flight);
 
         model.addAttribute("passenger", passenger);
 
@@ -156,6 +174,7 @@ public class UserController {
 
     /**
      * Returns a page with new saved ticket
+     *
      * @param id
      * @param passenger
      * @param model
@@ -163,7 +182,7 @@ public class UserController {
      */
     @RequestMapping("/boughtTicket/{id}")
     public String boughtTicket(@PathVariable("id") Integer id,
-                               @ModelAttribute Passenger passenger, Model model){
+                               @ModelAttribute Passenger passenger, Model model) {
         final Passenger registeredPassenger = passengerManager.create(passenger);
 
         final Flight flight = flightManager.findByID(id);
@@ -176,7 +195,7 @@ public class UserController {
 
         ticketManager.create(ticket);
 
-        model.addAttribute("ticket",ticket);
+        model.addAttribute("ticket", ticket);
 
         return "userPage/savedTicket";
     }

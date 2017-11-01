@@ -12,18 +12,16 @@ import java.util.List;
 
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
-   List<Flight> findAllByCityFromAndCityTo(String from, String to);
+    List<Flight> findAllByCityFromAndCityTo(String from, String to);
 
+    Integer deleteByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
 
-   Integer deleteByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
+    Flight findByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
 
+    Flight findById(Integer id);
 
-   Flight findByCityFromAndCityToAndDepartureDate(String cityFrom, String cityTo, Date date);
+    void deleteAllByDepartureDateIsBefore(Date date);
 
-   Flight findById(Integer id);
-
-   void deleteAllByDepartureDateIsBefore(Date date);
-
-   List<Flight> findAllByCityFrom(String city);
+    List<Flight> findAllByCityFrom(String city);
 
 }

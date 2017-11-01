@@ -2,21 +2,22 @@ package org.academy.projects.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Table(name = "planes")
-public class Plane implements Serializable{
+public class Plane implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="model")
+    @Column(name = "model")
     private String model;
 
-    @Column(name="number_of_places")
+    @Column(name = "number_of_places")
     private int numberOfPlaces;
 
-    public Integer getID(){
+    public Integer getID() {
         return id;
     }
 
@@ -39,10 +40,13 @@ public class Plane implements Serializable{
     @Override
     public String toString() {
         return "Plane{"
-                + "id=" + id
-                + ", model='" + model
+                + "id="
+                + id
+                + ", model='"
+                + model
                 + '\''
-                + ", numberOfPlaces=" + numberOfPlaces +
-                '}';
+                + ", numberOfPlaces="
+                + numberOfPlaces
+                + '}';
     }
 }

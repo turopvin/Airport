@@ -13,110 +13,67 @@ import javax.transaction.Transactional;
 @Transactional
 public class PassengerManager implements PassengerManagement {
 
-    private final static Logger log = LoggerFactory.getLogger(PassengerManager.class);
-
     private final PassengerRepository passengerRepository;
 
     @Autowired
-    public PassengerManager(PassengerRepository passengerRepository){
+    public PassengerManager(PassengerRepository passengerRepository) {
         this.passengerRepository = passengerRepository;
     }
 
-
-    /**
-     * Create new passenger and responsible
-     * for not to save the same person twice
-     * @param passenger
-     * @return
-     */
     @Override
-    public Passenger create(Passenger passenger) {
+    public Passenger create(final Passenger passenger) {
 
-        if (passenger == null){
+        if (passenger == null) {
 
-            log.error("Passenger can't be null in"+PassengerManager.class.getName());
-
-            throw new IllegalArgumentException();
-
+            throw new IllegalArgumentException("Please check your input data");
         }
 
-        if(passengerRepository.findByPassportNumber(passenger.getPassportNumber())!= null){
+        if (passengerRepository.findByPassportNumber(passenger.getPassportNumber()) != null) {
 
             return passengerRepository.findByPassportNumber(passenger.getPassportNumber());
 
         } else return passengerRepository.save(passenger);
     }
 
-
-    /**
-     * Delete passenger
-     * @param passenger
-     */
     @Override
-    public void delete(Passenger passenger) {
+    public void delete(final Passenger passenger) {
 
         if (passenger == null) {
 
-            log.error("Passenger can't be null in"+PassengerManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         passengerRepository.delete(passenger);
     }
 
-
-    /**
-     * Returns passenger by ID
-     * @param id
-     * @return
-     */
     @Override
-    public Passenger read(Integer id) {
+    public Passenger read(final Integer id) {
 
-        if (id == null){
+        if (id == null) {
 
-            log.error("Id can't be null in"+PassengerManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return passengerRepository.findOne(id);
     }
 
-
-    /**
-     * Returns updated passenger
-     * @param passenger
-     * @return
-     */
     @Override
-    public Passenger update(Passenger passenger) {
+    public Passenger update(final Passenger passenger) {
 
         if (passenger == null) {
 
-            log.error("Passenger can't be null in"+PassengerManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return passengerRepository.saveAndFlush(passenger);
     }
 
-
-    /**
-     * Returns passenger by passport number
-     * @param passportNumber
-     * @return
-     */
     @Override
-    public Passenger findByPassportNumber(String passportNumber) {
+    public Passenger findByPassportNumber(final String passportNumber) {
 
         if (passportNumber == null) {
 
-            log.error("Passport number can't be null in"+PassengerManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return passengerRepository.findByPassportNumber(passportNumber);

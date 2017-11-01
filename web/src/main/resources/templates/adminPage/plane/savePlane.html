@@ -15,12 +15,12 @@
     	<form action="#" th:action="@{/registeringPlane}" th:object="${plane}">
 	    	<div>
 			    <label class="clearfix"><span class="caption">Model:</span>
-			        <input type="text" th:field="*{model}"/>
+			        <input required="required" type="text" th:field="*{model}"/>
 			    </label>
 		    </div>
 		    <div>
 			    <label class="clearfix"><span class="caption">Number of places:</span>
-			        <input type="number" th:field="*{numberOfPlaces}"/>
+			        <input required="required" type="number" th:field="*{numberOfPlaces}"/>
 			    </label>
 		    </div>
 		    		<input class="btn" type="submit" value="Save"/>

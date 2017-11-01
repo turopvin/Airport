@@ -2,6 +2,7 @@ package org.academy.projects.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Table(name = "tickets")
 public class Ticket implements Serializable {
@@ -13,7 +14,6 @@ public class Ticket implements Serializable {
     @ManyToOne
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
-
 
     @ManyToOne
     @JoinColumn(name = "flight_id")
@@ -39,7 +39,7 @@ public class Ticket implements Serializable {
     public String toString() {
         return "Ticket{"
                 + "passenger="
-                + passenger .getFirstName()
+                + passenger.getFirstName()
                 + " "
                 + passenger.getLastName()
                 + ", flight="

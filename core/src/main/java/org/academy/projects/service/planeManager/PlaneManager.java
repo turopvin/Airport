@@ -13,85 +13,53 @@ import javax.transaction.Transactional;
 @Transactional
 public class PlaneManager implements PlaneManagement {
 
-    private final static Logger log = LoggerFactory.getLogger(PlaneManager.class);
-
     private final PlaneRepository planeRepository;
 
     @Autowired
-    public PlaneManager(final PlaneRepository planeRepository){
+    public PlaneManager(final PlaneRepository planeRepository) {
         this.planeRepository = planeRepository;
     }
 
-    /**
-     * Returns saved plane
-     * @param plane
-     * @return
-     */
     @Override
-    public Plane create(Plane plane) {
+    public Plane create(final Plane plane) {
 
-        if (plane == null){
+        if (plane == null) {
 
-            log.error("Plane can't be null in"+PlaneManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return planeRepository.save(plane);
     }
 
-
-    /**
-     * delete plane
-     * @param plane
-     */
     @Override
-    public void delete(Plane plane) {
+    public void delete(final Plane plane) {
 
-        if (plane == null){
+        if (plane == null) {
 
-            log.error("Plane can't be null in"+PlaneManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         planeRepository.delete(plane);
 
     }
 
-
-    /**
-     * Returns plane by ID
-     * @param id
-     * @return
-     */
     @Override
-    public Plane read(Integer id) {
+    public Plane read(final Integer id) {
 
         if (id == null) {
 
-            log.error(" Id can't be null in"+PlaneManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return planeRepository.findOne(id);
     }
 
-
-    /**
-     * Returns updated plane
-     * @param plane
-     * @return
-     */
     @Override
-    public Plane update(Plane plane) {
+    public Plane update(final Plane plane) {
 
-        if (plane == null){
+        if (plane == null) {
 
-            log.error("Plane can't be null in"+PlaneManager.class.getName());
-
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return planeRepository.saveAndFlush(plane);

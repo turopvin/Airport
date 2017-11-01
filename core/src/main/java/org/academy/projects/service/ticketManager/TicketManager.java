@@ -14,8 +14,6 @@ import java.util.List;
 @Transactional
 public class TicketManager implements TicketManagement {
 
-    private final static Logger log = LoggerFactory.getLogger(TicketManager.class);
-
     private final TicketRepository ticketRepository;
 
     @Autowired
@@ -23,18 +21,11 @@ public class TicketManager implements TicketManagement {
         this.ticketRepository = ticketRepository;
     }
 
-    /**
-     * Returns created ticket
-     * @param ticket
-     * @return
-     */
     @Override
-    public Ticket create(Ticket ticket) {
+    public Ticket create(final Ticket ticket) {
         if (ticket == null) {
 
-            log.error("Passenger can't be null in"+TicketManager.class.getName());
-
-            throw new IllegalArgumentException("ticket can't be null");
+            throw new IllegalArgumentException("Please check your input data");
         }
 
         return ticketRepository.save(ticket);

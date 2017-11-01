@@ -15,45 +15,48 @@ public class WelcomeController {
     private final FlightManager flightManager;
 
     @Autowired
-    public WelcomeController(FlightManager flightManager){
+    public WelcomeController(FlightManager flightManager) {
         this.flightManager = flightManager;
     }
 
-
     /**
-     * Returns welcome page
+     * Returns welcome page,
      * also check the database, if there are out
      * od date flights, this method deletes them
+     *
      * @return
      */
     @RequestMapping("/")
-    public String welcome(){
+    public String welcome() {
 
         java.util.Date date = new java.util.Date();
 
         flightManager.deleteAllPassedFlight(date);
+
         return "welcomePage";
     }
 
-
     /**
      * Returns page for admin
+     *
      * @return
      */
     @RequestMapping("/admin")
-    public String admin(){
+    public String admin() {
         return "adminPage/mainAdmin";
     }
 
-
     /**
      * Returns page for user
+     *
      * @param model
      * @return
      */
     @RequestMapping("/user")
-    public String user(Model model){
+    public String user(Model model) {
+
         model.addAttribute(new Flight());
+
         return "userPage/mainUser";
     }
 }
