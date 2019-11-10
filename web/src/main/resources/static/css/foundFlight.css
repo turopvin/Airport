@@ -1,0 +1,107 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	color: #f1ede5;
+	font-size: 24px;
+}
+
+.clearfix:after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.container {
+	padding: 20px;
+	margin: 0 auto;
+	padding-top: 20px;
+	min-width: 700px;
+	width: 870px;
+}
+
+
+body {
+	background-color: #be9a66;
+	background: url(../img/bg/bg_admin_1.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+div {
+	padding-bottom: 15px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: bolder;
+	font-style: italic;
+	color: #f1ede5;
+	cursor: default;
+}
+
+.last-row {
+	border-bottom: 1px solid white;
+
+}
+
+form {
+	width: 600px;
+	text-align: center;
+}
+
+label {
+	text-align: left;
+	cursor: pointer;
+}
+
+.caption {
+	float: left;
+}
+
+.input {
+	float: right;
+	color: black;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	margin-right: 50px;
+}
+
+.plane {
+	float: right;
+	padding-bottom: 0;
+	color: black;
+	margin-right: 50px;
+}
+
+.note {
+	float: right;
+	font-size: 15px;
+	font-style: italic;
+	cursor: default;
+	margin-right: 50px;
+}
+
+.btn {
+	margin-top: 20px;
+	margin-left: 20px;
+	color: #f1ede5;
+	background-color: transparent;	
+	border: none;
+	border-radius: 2px;
+	border: 1px solid #f1ede5;
+	height: 40px;
+	min-width: 150px;
+	font-size: 26px;
+	font-weight: lighter;
+	float: left;
+}
+
+.btn:hover {
+	color: #398835;
+	border: 1px solid #398835;
+	box-shadow: 1px 0 15px #398835;
+	font-weight: bold;
+	cursor: pointer;
+}

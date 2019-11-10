@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Find My Tickets</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/formToFindMyTickets.css" th:href="@{/css/formToFindMyTickets.css}"/>
+    <style type="text/css">
+        body {background-color: #6d88ab;}
+    </style>
+</head>
+<body>
+	<div class="container">
+    <h1>Fill out the form below to find your ticket</h1>
+    <!--/*@thymesVar id="passenger" type="org.academy.projects.model.Passenger"*/-->
+    <form action="#" th:action="@{/myTickets}" th:object="${passenger}">
+        <label class="clearfix">Passport number:<input required="required" type="text" th:field="*{passportNumber}"/></label>
+        <input class="btn" type="submit" value="Show my tickets"/>
+    </form>
+    </div>
+</body>
+</html>

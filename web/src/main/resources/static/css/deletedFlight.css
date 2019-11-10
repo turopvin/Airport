@@ -1,0 +1,42 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	font-size: 26px;
+	color: #f1ede5;
+
+}
+
+.container {
+	padding: 20px;
+	min-width: 700px;
+	width: 700px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ }
+
+body {
+	background-color: #1c3d69;
+	background: url(../img/bg/bg_admin_1.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+
+div {
+	padding-bottom: 15px;
+}
+
+.result {
+	display: block;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 50px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to "Prince Vitaut - Airlines"</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" th:href="@{/css/main.css}"/>
+
+    <style type="text/css">
+	        body {
+	    background-color: #191724;    
+		}
+    </style>
+</head>
+<body>
+	<div class="container clearfix">
+		<h1 class="slogan">Nice to see you at <span title="One of the most famous rulers of the Grand Duchy of Lithuania, still known as the Great">Vitaut</span> - Airlines</h1>
+		<ul class="access">
+			<li><a class="admin btn" th:href="@{/admin}">Administrator</a></li>
+			<li><a class="user btn" th:href="@{/user}">User</a></li>
+		</ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	color: #f1ede5;
+}
+
+.clearfix:after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.container {
+	padding: 20px;
+	margin: 0 auto;
+	padding-top: 300px;
+	min-width: 500px;
+	width: 1200px;
+	/*border: 1px solid red;*/
+}
+
+body {
+	background-color: #191724;
+	background: url(../img/bg/bg.vol-2.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+
+.slogan {
+	text-align: center;
+	font-size: 50px;
+	font-weight: lighter;
+	cursor: default;
+	padding-bottom: 25px;
+	border-bottom: 1px solid white;
+}
+
+.access li {
+	float: left;
+	margin-left: 160px;
+	list-style-type: none;
+	font-size: 28px;
+}
+
+li:last-child {
+	float: right; 
+	margin-right: 200px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #650b31;
+	cursor: pointer;
+}
+
+.btn {
+	padding: 20px;
+	color: #f1ede5;		
+	border-radius: 15px;
+	border: 1px solid #f1ede5;
+	font-weight: lighter;
+}
+
+.btn:hover {
+	color: #650b31;
+	border: 1px solid #650b31;
+	box-shadow: 1px 0 15px #650b31;
+	cursor: pointer;
+}
+
+.admin {
+	text-align: center;
+	display: block;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.user {
+	text-align: center;
+	display: block;
+	padding-left: 70px;
+	padding-right: 70px;
+}

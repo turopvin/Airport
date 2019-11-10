@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h4 align="center">All flights</h4>
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+    <div th:each="flight: ${flight}" th:object="${flight}">
+         <a th:text="${flight}"/>
+    </div>
+    <a th:href="@{/user}">Homew</a>
+
+</body>
+</html>

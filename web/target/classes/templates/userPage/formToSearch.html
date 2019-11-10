@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main User Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/mainUser.css" th:href="@{/css/formToSearch.css}"/>
+    <style type="text/css">
+        body {background-color: #6d88ab;}
+    </style>
+</head>
+<body>        
+    <main class="container clearfix">
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+        <h1>We value your time and comfort</h1>
+        <h2>Here you can find your flight</h2>
+        <form action="#" th:action="@{/findingTrip}" th:object="${flight}">
+            <label class="clearfix">From:<input type="text" th:field="*{cityFrom}"/></label>
+            <label class="clearfix">To:<input type="text" th:field="*{cityTo}"/></label>
+            <label class="clearfix">Departure date:<input type="date" th:field="*{departureDate}"/></label>            
+            <input class="btn" type="submit" value="Search"/>
+        </form>
+    </main>
+</body>
+</html>

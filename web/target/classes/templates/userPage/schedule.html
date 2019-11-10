@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grodno Airport</title>
+</head>
+<body>
+
+        <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+        <div th:each="flight: ${flight}" th:object="${flight}">
+            <a th:text="${flight}"/>
+        </div>
+        <a th:href="@{/user}">Home</a>
+</body>
+</html>

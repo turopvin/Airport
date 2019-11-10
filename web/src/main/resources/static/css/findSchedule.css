@@ -1,0 +1,90 @@
+* {
+	font-family: "Montserrat", "Arial", sans-serif;
+	font-weight: lighter;
+	color: #f1ede5;
+	font-size: 24px;
+}
+
+h1 {
+	text-align: center;
+	color: #eb8827;
+	font-size: 60px;
+	cursor: default;
+}
+
+h2 {
+	text-align: center;
+	font-size: 40px;
+}
+
+.clearfix:after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.container {
+	width: 1200px;
+	min-width: 900px;
+	padding: 20px;
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ }
+
+form {
+	width: 400px;
+	margin: 0 auto;
+}
+
+body {
+	background-color: #6d88ab;
+	background: url(../img/bg/bg.vol-3.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;	
+	height: 95vh;
+}
+
+label {
+	text-align: left;
+	cursor: pointer;
+}
+
+input {
+	float: right;
+	color: black;
+	font-weight: bolder;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	font-weight: lighter;
+	font-size: 24px;
+}
+
+.btn {
+	margin-top: 20px;
+	margin-left: 20px;
+	color: #f1ede5;
+	background-color: transparent;	
+	border: none;
+	border-radius: 2px;
+	border: 1px solid #f1ede5;
+	height: 40px;
+	min-width: 250px;
+	width: 250px;
+	font-size: 26px;
+	font-weight: lighter;
+	float: left;
+}
+
+.btn:hover {
+	color: #eb8827;
+	border: 1px solid #eb8827;
+	box-shadow: 1px 0 15px #eb8827;
+	font-weight: bolder;
+	cursor: pointer;
+}

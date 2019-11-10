@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Information about deleted flight</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/deletedFlight.css" th:href="@{/css/deletedFlight.css}"/>
+        <style type="text/css">
+            body {background-color: #191724;}
+    </style>
+ </head>
+<body>
+    <main class="container">
+    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+        <p th:object="${flight}"/>
+
+        <div>City From:<span th:text="${flight.getCityFrom()}"/></div>
+        <div>City To:<span th:text="${flight.getCityTo()}"/></div>
+        <div>Departure date and time:<span th:text="${flight.getDepartureDate()}"/></div>
+        <div>Arrival date and time:<span th:text="${flight.getArrivalDate()}"/></div>
+        <div>Price:<span th:text="${flight.getPrice()}"/></div>
+        <div>Plane:<span th:text="${flight.getPlane().model}"/></div>
+
+        <span class="result">This flight was successfully deleted</span>
+    </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Find Schedule</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/findSchedule.css" th:href="@{/css/findSchedule.css}"/>
+    <style type="text/css">
+        body {background-color: #6d88ab;}
+    </style>
+</head>
+<body>
+	<div class="container">
+	    <h1>Fill out the form to find the schedule</h1>
+	    <!--/*@thymesVar id="flight" type="org.academy.projects.model.Flight"*/-->
+	    <form action="#" th:action="@{/schedule}" th:object="${flight}">
+	        <label class="clearfix">From:<input type="text" th:field="*{cityFrom}"/></label>
+	        <label class="clearfix">To:<input type="text" th:field="*{cityTo}"/></label>
+	        <input class="btn" type="submit" value="Find"/><a></a>
+	    </form>
+    </div>
+</body>
+</html>

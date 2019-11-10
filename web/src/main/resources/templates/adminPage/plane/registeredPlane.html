@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Information about registered Plane</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/registeredPlane.css" th:href="@{/css/registeredPlane.css}"/>
+    <style>
+    	body {background-color: #be9a66;}
+    </style>
+</head>
+<body>
+    <!--/*@thymesVar id="plane" type="org.academy.projects.model.Plane"*/-->
+    <main class="container">
+    	<p th:object="${plane}"/>
+        <div>Model:<span th:text="${plane.model}"/></div>
+        <div>Number of places:<span th:text="${plane.numberOfPlaces}"/></div>
+        <div>The plane was successfully registered</div>
+    </main>
+</body>
+</html>
